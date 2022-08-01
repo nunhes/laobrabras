@@ -13,7 +13,7 @@ class CreateOftraballoTable extends Migration
      */
     public function up()
     {
-        Schema::create('oftraballo', function (Blueprint $table) {
+        Schema::create('oftraballos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();

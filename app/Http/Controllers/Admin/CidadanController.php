@@ -20,6 +20,7 @@ class CidadanController extends Controller
         if (request()->has('search')) {
             $cidadans->where('name', 'Like', '%' . request()->input('search') . '%');
         }
+
         if (request()->query('sort')) {
             $attribute = request()->query('sort');
             $sort_order = 'ASC';
@@ -31,6 +32,7 @@ class CidadanController extends Controller
         } else {
             $cidadans->latest();
         }
+
         $cidadans = $cidadans->paginate(5);
         return view('admin.cidadan.index',compact('cidadans'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
@@ -43,7 +45,8 @@ class CidadanController extends Controller
      */
     public function create()
     {
-        //
+        //add
+        return view('admin.cidadan.create');
     }
 
     /**
@@ -55,6 +58,12 @@ class CidadanController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|string|max:255:'.config('cidadan.table_names.cidadans', 'cidadans').',name',
+        ]);
+        Cidadan::create($request->all());
+        return redirect()->route('cidadan.index')
+            ->with('message','Cidadan created successfully.');
     }
 
     /**
@@ -66,8 +75,6 @@ class CidadanController extends Controller
     public function show(Cidadan $cidadan)
     {
         // add
-        $roles = Role::all();
-        $userHasRoles = array_column(json_decode($user->roles, true), 'id');
         return view('admin.cidadan.show', compact('cidadan'));
     }
 
@@ -80,8 +87,6 @@ class CidadanController extends Controller
     public function edit(Cidadan $cidadan)
     {
         // add
-        $roles = Role::all();
-       
         return view('admin.cidadan.edit', compact('cidadan'));
     }
 
@@ -94,7 +99,13 @@ class CidadanController extends Controller
      */
     public function update(Request $request, Cidadan $cidadan)
     {
-        //
+        // add
+        $request->validate([
+            'name' => 'required|string|max:255:'.config('cidadan.table_names.cidadans', 'cidadans').',name,'.$cidadan->id,
+        ]);
+        $cidadan->update($request->all());
+        return redirect()->route('cidadan.index')
+            ->with('message','Cidadan updated successfully.');
     }
 
     /**
@@ -105,6 +116,21 @@ class CidadanController extends Controller
      */
     public function destroy(Cidadan $cidadan)
     {
-        //
+        // eliminar cidadan existente
+        $cidadan->delete();
+        return redirect()->route('cidadan.index')
+            ->with('message','Cidadan deleted successfully');
     }
+
+/**
+ * The permission has been checked in the controller constructor by using middleware.
+ */
+    function __construct()
+    {
+        $this->middleware('can:cidadan list', ['only' => ['index','show']]);
+        $this->middleware('can:cidadan create', ['only' => ['create','store']]);
+        $this->middleware('can:cidadan edit', ['only' => ['edit','update']]);
+        $this->middleware('can:cidadan delete', ['only' => ['destroy']]);
+    }
+
 }

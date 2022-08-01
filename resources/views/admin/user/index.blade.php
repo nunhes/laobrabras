@@ -1,36 +1,61 @@
 <x-app-layout>
     <x-slot name="header">
+
+        <div class="flex">
+            <div class="w-1/2 p-2 text-left">
+                <h2 class="font-semibold text-xl pt-4 leading-tight">                    
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Users') }}
         </h2>
-    </x-slot>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <div class="flex flex-col mt-8">
-                        @can('user create')
-                            <div class="d-print-none with-border mb-8">
-                                <a href="{{ route('user.create') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">{{ __('Add User') }}</a>
+
+</div>
+            <div class="w-1/6 p-2 justify-end">
+                <div class="p-2 w-22 h-22 flex justify-end items-center">
+                     @can('user create')
+                            <div class="d-print-none with-border mt-2 p-0">
+                                <a href="{{ route('user.create') }}" class="text-blue-900 hover:bg-grey-200 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 justify-center">
+<abbr class="tooltip tooltip--bottom" data-tooltip="&nbsp; + Usuario">
+                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+                        {{-- __('Add User') --}}
+</abbr></a>
                             </div>
-                        @endcan
-                        <div class="py-2">
-                            @if(session()->has('message'))
-                                <div class="mb-8 text-green-400 font-bold">
-                                    {{ session()->get('message') }}
-                                </div>
-                            @endif
-                            <div class="min-w-full border-b border-gray-200 shadow overflow-x-auto">
-                                <form method="GET" action="{{ route('user.index') }}">
+@endcan
+                </div>
+
+            </div>
+            <div class="w-1/3 p-2 text-right">
+                <!-- search form -->
+
+                   <form method="GET" action="{{ route('user.index') }}">
                                     <div class="py-2 flex">
-                                        <div class="flex pl-2">
+                                        <div class="overflow-hidden flex pl-4">
                                             <input type="search" name="search" value="{{ request()->input('search') }}" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Search">
-                                            <button type='submit' class='ml-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150'>
-                                                {{ __('Search') }}
-                                            </button>
+                                            <button type='submit' class='ml-2 inline-flex items-center px-2 py-2 bg-tranparent border border-transparent rounded-md font-semibold text-xs  tracking-widest hover:bg-blue-200 active:bg-gray-200 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150'>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg> {{--  __('Search')  --}}
+                            </button>
                                         </div>
                                     </div>
                                 </form>
+
+                <!-- en search form -->
+            </div>
+        </div>
+
+    </x-slot>
+    <div class="py-2">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-0 p-t-4 border-b border-gray-200">
+                    <div class="flex flex-col mt-8">
+                       
+                        <div class="py-2">
+                            @if(session()->has('message'))
+                                <div class="ml-5 mb-6 text-green-400 font-bold">
+                                    {{ session()->get('message') }}
+                                </div>
+                            @endif
+                            <div class="min-w-full border-b border-gray-200 shadow">
+                             
                                 <table class="border-collapse table-auto w-full text-sm">
                                     <thead>
                                     <tr>
@@ -72,7 +97,7 @@
                                                         @can('user delete')
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button class="px-4 py-2 text-white bg-red-600" onclick="deleteConfirm(event)">{{-- onclick="return confirm('{{ __('Are you sure you want to delete?') }}')" --}}
+                                                            <button class="px-4 py-2 text-white bg-red-600" onclick="deleteConfirm(user)">{{-- onclick="return confirm('{{ __('Are you sure you want to delete?') }}')" --}}
                                                                 {{ __('Delete') }}
                                                             </button>
                                                         @endcan

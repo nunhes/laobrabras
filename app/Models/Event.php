@@ -17,6 +17,6 @@ class Event extends Model
     protected $fillable = [
         'title',
         'start',
-        'end',
+        'end', // o que realmente importa é cando enceta
     ];
 }

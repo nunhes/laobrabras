@@ -45,7 +45,8 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        //
+        //add
+        return view('admin.empresa.create');
     }
 
     /**
@@ -57,6 +58,12 @@ class EmpresaController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|string|max:255:'.config('empresa.table_names.empresas', 'empresas').',name',
+        ]);
+        Empresa::create($request->all());
+        return redirect()->route('empresa.index')
+            ->with('message','Empresa created successfully.');
     }
 
     /**
@@ -67,7 +74,8 @@ class EmpresaController extends Controller
      */
     public function show(Empresa $empresa)
     {
-        //
+        // add
+        return view('admin.empresa.show', compact('empresa'));
     }
 
     /**
@@ -78,7 +86,8 @@ class EmpresaController extends Controller
      */
     public function edit(Empresa $empresa)
     {
-        //
+        //// add
+        return view('admin.empresa.edit', compact('empresa'));
     }
 
     /**
@@ -90,7 +99,14 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        //
+            // add
+        $request->validate([
+            'name' => 'required|string|max:255:'.config('empresa.table_names.empresas', 'empresas').',name,'.$empresa->id,
+        ]);
+        $empresa->update($request->all());
+        return redirect()->route('empresa.index')
+            ->with('message','Empresa updated successfully.');
+    
     }
 
     /**
@@ -101,6 +117,22 @@ class EmpresaController extends Controller
      */
     public function destroy(Empresa $empresa)
     {
-        //
+        // eliminar empresa existente
+        $empresa->delete();
+        return redirect()->route('empresa.index')
+            ->with('message','Empresa deleted successfully');
+   
     }
+
+/**
+ * The permission has been checked in the controller constructor by using middleware.
+ */
+    function __construct()
+    {
+        $this->middleware('can:empresa list', ['only' => ['index','show']]);
+        $this->middleware('can:empresa create', ['only' => ['create','store']]);
+        $this->middleware('can:empresa edit', ['only' => ['edit','update']]);
+        $this->middleware('can:empresa delete', ['only' => ['destroy']]);
+    }
+
 }

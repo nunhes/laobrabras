@@ -8,6 +8,7 @@ use Redirect,Response;
 
 class FullCalendarController extends Controller
 {
+    
     public function index()
     {
 

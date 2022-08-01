@@ -1,4 +1,9 @@
 const mix = require('laravel-mix');
+/*
+* to use tailwind and sass
+* ref: https://ralphjsmit.com/tailwind-sass-laravel
+* */
+const tailwindcss = require('tailwindcss'); /* Add this line at the top */
 
 /*
  |--------------------------------------------------------------------------
@@ -12,6 +17,17 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+    .sass('resources/sass/app.scss', 'public/css')
+    .options({
+        postCss: [ 
+tailwindcss('./tailwind.config.js'), 
+],
+    })
+    .version();
+
+/*  mix.js('resources/js/app.js', 'public/js')
+.postCss('resources/sass/app.scss', 'public/css', [
+    require('postcss-import'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+]); */

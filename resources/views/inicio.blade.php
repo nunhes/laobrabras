@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tails Downloaded File</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Nunito" media="all">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body style="font-family: Nunito">
 
@@ -14,13 +19,12 @@
     <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
         <div class="relative flex flex-col md:flex-row">
             <a href="#_" class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
-                <span class="mx-auto text-xl font-black leading-none text-gray-900 select-none">tails<span class="text-green-600">.</span></span>
+                <span class="mx-auto text-xl font-black leading-none text-gray-900 select-none">S.O.L.<span class="text-green-600">.</span></span>
             </a>
             <nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
-                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Home</a>
-                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Features</a>
-                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Pricing</a>
-                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+                <a href="/" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Home</a>
+                <a href="#aboutme" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Documentación</a>
+                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Datos</a>
             </nav>
         </div>
 
@@ -103,7 +107,7 @@
 </section>
 
 <!-- Section 4 -->
-<section class="w-full bg-white pt-7 pb-7 md:pt-20 md:pb-24">
+<section class="w-full bg-white pt-7 pb-7 md:pt-20 md:pb-24" id="aboutme">
     <div class="box-border flex flex-col items-center content-center px-8 mx-auto leading-6 text-black border-0 border-gray-300 border-solid md:flex-row max-w-7xl lg:px-16">
 
         <!-- Image -->
@@ -213,6 +217,9 @@
 
 <!-- AlpineJS Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.0/alpine.js"></script>
+
+<!-- script src="~/@themesberg/flowbite/dist/flowbite.bundle.js"></script -->
+<script src="https://unpkg.com/@themesberg/flowbite@{{ current_version }}/dist/flowbite.bundle.js"></script>
 
 </body>
 </html>

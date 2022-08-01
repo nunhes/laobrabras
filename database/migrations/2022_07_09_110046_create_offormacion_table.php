@@ -13,7 +13,7 @@ class CreateOfformacionTable extends Migration
      */
     public function up()
     {
-        Schema::create('offormacion', function (Blueprint $table) {
+        Schema::create('offormacions', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->timestamps();
