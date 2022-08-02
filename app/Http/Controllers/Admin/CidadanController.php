@@ -18,7 +18,7 @@ class CidadanController extends Controller
         // add
         $cidadans = (new Cidadan)->newQuery();
         if (request()->has('search')) {
-            $cidadans->where('name', 'Like', '%' . request()->input('search') . '%');
+            $cidadans->where('nome', 'Like', '%' . request()->input('search') . '%');
         }
 
         if (request()->query('sort')) {

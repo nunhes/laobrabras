@@ -18,8 +18,9 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+     <div class="font-sans text-gray-900 antialiased">
+         <div class="bg-blue-400 text-yellow-100 m-0 px-4 py-4 font-light text-2xl leading-none">Servizo de Orientación Laboral</div>
+         {{ $slot }}
         </div>
     </body>
 </html>

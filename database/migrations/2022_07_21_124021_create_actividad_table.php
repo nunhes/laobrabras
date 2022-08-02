@@ -16,7 +16,7 @@ class CreateActividadTable extends Migration
         Schema::create('actividad', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codigo')->nullable();
-            $table->double('coste');
+            $table->float('coste', 8, 2);
             $table->boolean('costeasoc');
             $table->dateTime('datafin')->nullable();
             $table->dateTime('datainicio')->nullable();
@@ -25,7 +25,7 @@ class CreateActividadTable extends Migration
             $table->integer('nummatriculadostotal');
             $table->integer('nummatriculadosweb');
             $table->boolean('needssanitario')->nullable();
-            $table->bigInteger('programa_id')->nullable();
+            $table->foreignId('programa_id')->nullable();
         });
     }
 

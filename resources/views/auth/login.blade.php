@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo class="w-30 h-30 fill-current text-blue-500" />
             </a>
         </x-slot>
 
@@ -11,7 +11,7 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
+        <h2 class="justify-center display-5 text-blue-900 font-light mx-auto py-3"  >Iniciar sesión</h2>
         <form method="POST" action="{{ route('login') }}">
             @csrf
 

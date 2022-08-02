@@ -8,7 +8,7 @@
     </div>
 
     @push('scripts')
-        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.3.1/main.min.js'></script>
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
 
         <script>
             document.addEventListener('livewire:load', function() {
@@ -16,8 +16,29 @@
                 var Draggable = FullCalendar.Draggable;
                 var calendarEl = document.getElementById('calendar');
                 var checkbox = document.getElementById('drop-remove');
+
+            var containerEl = document.getElementById('external-events'); // engadido
+
                 var data =   @this.events;
                 var calendar = new Calendar(calendarEl, {
+/* engadido */
+ slotMinTime: '09:00:00',
+                slotMaxTime: '22:00:00',
+                slotDuration: '00:15:00',
+                slotLabelInterval: '00:15:00',
+                editable: true,
+                selectable: true,
+                eventDurationEditable: true,
+                displayEventTime: true,
+                droppable: true, // this allows things to be dropped onto the calendar
+                initialView: 'timeGridWeek',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'timeGridWeek,timeGridDay,listWeek'
+                },
+
+/* fin engadido */
                     events: JSON.parse(data),
                     dateClick(info)  {
                         var title = prompt('Enter Event Title');
@@ -26,7 +47,8 @@
                             calendar.addEvent({
                                 title: title,
                                 start: date,
-                                allDay: true
+                                // allDay: true
+                                end: end,
                             });
                             var eventAdd = {title: title,start: date};
                         @this.addevent(eventAdd);

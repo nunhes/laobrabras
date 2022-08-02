@@ -12,7 +12,7 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body style="font-family: Nunito">
+<body>
 
 <!-- Section 1 -->
 <section class="w-full px-8 text-gray-700 bg-white">

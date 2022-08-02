@@ -33,11 +33,11 @@
                     <form method="POST" action="{{ route('cidadan.store') }}">
                         @csrf
                         <div class="py-2">
-                            <label for="name" class="block font-medium text-sm text-gray-700{{$errors->has('name') ? ' text-red-400' : ''}}">{{ __('Name') }}</label>
-                            <input id="name" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('name') ? ' border-red-400' : ''}}"
+                            <label for="nome" class="block font-medium text-sm text-gray-700{{$errors->has('nome') ? ' text-red-400' : ''}}">{{ __('Nome') }}</label>
+                            <input id="nome" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('nome') ? ' border-red-400' : ''}}"
                                    type="text"
-                                   name="name"
-                                   value="{{ old('name') }}"
+                                   name="nome"
+                                   value="{{ old('nome') }}"
                             />
                         </div>
                         <div class="py-2">

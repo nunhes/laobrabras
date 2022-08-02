@@ -68,11 +68,11 @@
                                     <tr>
                                         <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                             {{-- __('Name') --}}
-                                            @include('admin.includes.sort-link', ['label' => 'Name', 'attribute' => 'name'])
+                                            @include('admin.includes.sort-link', ['label' => 'Nome', 'attribute' => 'nome'])
                                         </th>
                                         <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                             {{-- __('Email') --}}
-                                            @include('admin.includes.sort-link', ['label' => 'Apelido', 'attribute' => 'apelido1'])
+                                            @include('admin.includes.sort-link', ['label' => 'Apelido', 'attribute' => 'apel1'])
                                         </th>
                                         <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                             {{-- __('Email') --}}
@@ -80,17 +80,17 @@
                                         </th>
                                         <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                             {{-- __('Mobil') --}}
-                                            @include('admin.includes.sort-link', ['label' => 'Localidade', 'attribute' => 'localidade'])
+                                            @include('admin.includes.sort-link', ['label' => 'CP', 'attribute' => 'codpostal'])
+                                        </th>
+                                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
+                                            {{-- __('Email') --}}
+                                            @include('admin.includes.sort-link', ['label' => 'Email', 'attribute' => 'email'])
                                         </th>
                                         <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                             {{-- __('Mobil') --}}
                                             @include('admin.includes.sort-link', ['label' => 'Móbil', 'attribute' => 'tfnomovil'])
                                         </th>
-<th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
-                                            {{-- __('Email') --}}
-                                            @include('admin.includes.sort-link', ['label' => 'Email', 'attribute' => 'email'])
-                                        </th>
-<th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
+                                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                             {{-- __('Mobil') --}}
                                             @include('admin.includes.sort-link', ['label' => 'Activo', 'attribute' => 'updated_at'])
                                         </th>
@@ -106,17 +106,37 @@
                                         <tr>
                                             <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
                                                 <div class="text-sm text-gray-900">
-                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->name }}</a>
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->nome }}</a>
                                                 </div>
                                             </td>
 <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
+                                                <div class="text-sm text-gray-900">
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->apel1 }}</a>
+                                                </div>
+                                            </td>
+<td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
+                                                <div class="text-sm text-gray-900">
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->nif }}</a>
+                                                </div>
+                                            </td>
+                                            <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
+                                                <div class="text-sm text-gray-900">
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->codpostal }}</a>
+                                                </div>
+                                            </td>
+                                            <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
                                                 <div class="text-sm text-gray-900">
                                                     <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->email }}</a>
                                                 </div>
                                             </td>
-<td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
+                                            <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
                                                 <div class="text-sm text-gray-900">
-                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->created_at }}</a>
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->tel1 }}</a>
+                                                </div>
+                                            </td>
+                                            <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
+                                                <div class="text-sm text-gray-900">
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->gruposbusca }}</a>
                                                 </div>
                                             </td>
                                             @canany(['cidadan edit', 'cidadan delete'])
