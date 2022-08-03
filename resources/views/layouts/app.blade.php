@@ -12,15 +12,17 @@
 
       <!-- evitar vite -->  
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
-<!-- Styles -->
-         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<!-- Scripts -->
+    <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        @livewireStyles
+
         <script
                 src="https://code.jquery.com/jquery-3.6.0.min.js"
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
                 crossorigin="anonymous"></script>
-        <script src="{{ asset('js/app.js') }}" defer></script>
-
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-blue-100">
@@ -38,5 +40,6 @@
                 {{ $slot }}
             </main>
         </div>
+        @livewireScripts
     </body>
 </html>

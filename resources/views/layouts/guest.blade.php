@@ -12,15 +12,23 @@
 
         <!-- Scripts -->
         {{-- // @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
-<!-- Styles -->
+    <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-<!-- Scripts -->
+
+        <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        @livewireStyles
+
+        <script
+                src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
     </head>
     <body>
      <div class="font-sans text-gray-900 antialiased">
          <div class="bg-blue-400 text-yellow-100 m-0 px-4 py-4 font-light text-2xl leading-none">Servizo de Orientación Laboral</div>
          {{ $slot }}
         </div>
+     @livewireScripts
     </body>
 </html>

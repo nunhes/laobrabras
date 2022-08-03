@@ -42,7 +42,7 @@
     <div class="py-2">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
+                <div class="p-2 pt-0 bg-white border-b border-gray-200">
                     <div class="flex flex-col mt-8">
                         {{-- @can('cidadan create')
                             <div class="d-print-none with-border mb-8 has-tooltip">
@@ -131,7 +131,7 @@
                                             </td>
                                             <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
                                                 <div class="text-sm text-gray-900">
-                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->tel1 }}</a>
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->tel2 }}</a>
                                                 </div>
                                             </td>
                                             <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
@@ -204,7 +204,7 @@
                             </div>
                             <div class="py-8">
                                 {{-- $cidadans->links() --}}
-                                {{ $cidadans->appends(request()->query())->links() }}
+                                {{ $cidadans->appends(request()->query())->links('pagination::tailwind') }}
                             </div>
                         </div>
                     </div>
