@@ -14,8 +14,16 @@ class CreateOftraballoTable extends Migration
     public function up()
     {
         Schema::create('oftraballos', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->bigIncrements('id');
+            $table->date('data');
+            $table->string('nummeses');
+            $table->string('numpostosofertados');
+            $table->string('observacions');
+            $table->string('posto');
+            $table->string('accionsfe_id');
+            $table->foreignId('id_empresa');
+            $table->foreignId('categoriaprofesional_id');
+            $table->string('estudiosminimos');
             $table->timestamps();
         });
     }

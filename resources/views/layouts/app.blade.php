@@ -34,7 +34,7 @@
                 crossorigin="anonymous"></script>
     </head>
     <body class="font-sans antialiased flex flex-col min-h-screen">
-        <div class="min-h-screen bg-blue-100">
+        <div class="bg-blue-100 min-h-screen">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

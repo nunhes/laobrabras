@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
 
+use DB;
+// use PDF;
+
 class EmpresaController extends Controller
 {
     /**
@@ -18,7 +21,7 @@ class EmpresaController extends Controller
         // add
         $empresas = (new Empresa)->newQuery();
         if (request()->has('search')) {
-            $empresas->where('name', 'Like', '%' . request()->input('search') . '%');
+            $empresas->where('nome', 'Like', '%' . request()->input('search') . '%');
         }
 
         if (request()->query('sort')) {
@@ -59,7 +62,7 @@ class EmpresaController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required|string|max:255:'.config('empresa.table_names.empresas', 'empresas').',name',
+            'nome' => 'required|string|max:255:'.config('empresa.table_names.empresas', 'empresas').',nome',
         ]);
         Empresa::create($request->all());
         return redirect()->route('empresa.index')
@@ -101,7 +104,7 @@ class EmpresaController extends Controller
     {
             // add
         $request->validate([
-            'name' => 'required|string|max:255:'.config('empresa.table_names.empresas', 'empresas').',name,'.$empresa->id,
+            'nome' => 'required|string|max:255:'.config('empresa.table_names.empresas', 'empresas').',nome,'.$empresa->id,
         ]);
         $empresa->update($request->all());
         return redirect()->route('empresa.index')

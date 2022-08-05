@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Cidadan;
 use Illuminate\Http\Request;
 
+use DB;
+use PDF;
+
 class CidadanController extends Controller
 {
     /**
@@ -121,6 +124,21 @@ class CidadanController extends Controller
         return redirect()->route('cidadan.index')
             ->with('message','Cidadan deleted successfully');
     }
+
+/*
+*  PDF view
+*/
+    public function createPDF(){
+        //Recuperar todos los productos de la db
+        $cidadans = Cidadan::all();
+        view()->share('cidadans', $cidadans);
+        $pdf = PDF::loadView('index', $cidadans);
+        return $pdf->download('cidadans.pdf');
+    //}
+
+
+        return view('pdfview');
+   }
 
 /**
  * The permission has been checked in the controller constructor by using middleware.

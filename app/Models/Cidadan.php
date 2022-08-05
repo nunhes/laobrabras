@@ -22,7 +22,7 @@ class Cidadan extends Model
         'desempregadolongaduracionnota',
         'discapacidade',
         'discapacidadenota',
-        'email',
+        'email',   // listado
         'enderezo',
         'exreclusa',
         'exreclusanota',

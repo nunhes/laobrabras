@@ -25,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //engadir paxinador
-        Paginator::useBootstrap();
+        // Paginator::useBootstrap();
     }
 }

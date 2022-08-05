@@ -7,6 +7,8 @@
     "require": {
         "php": "^7.4|^8.0",
         "amranidev/scaffold-interface": "^1.4.32",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "maatwebsite/excel": "^2.1.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "laravel/framework": "^8.75",

@@ -11,6 +11,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
+/* excel pdf */
+use Barryvdh\DomPDF\Facade as PDF;
+use Maatwebsite\Excel\Facades\Excel;
+
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
+
 class UserController extends Controller
 {
     function __construct()
@@ -220,4 +227,30 @@ class UserController extends Controller
         }
         return redirect()->route('admin.account.info')->with('password_message', $message);
     }
+
+
+/*
+* exportar a PDF/Excel 
+*/
+    public function exportPdf()
+    {
+    	$users = User::get();
+    	$pdf   = PDF::loadView('pdf.users', compact('users'));
+
+    	return $pdf->download('user-list.pdf');
+    }
+
+    public function exportExcel()
+    {
+    	return Excel::download(new UsersExport, 'user-list.xlsx');
+    }
+
+    public function importExcel(Request $request)
+    {
+        $file = $request->file('file');
+        Excel::import(new UsersImport, $file);
+
+        return back()->with('message', 'Importanción de usuarios completada');
+    }
+
 }

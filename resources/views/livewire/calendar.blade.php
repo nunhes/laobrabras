@@ -17,11 +17,11 @@
                 var calendarEl = document.getElementById('calendar');
                 var checkbox = document.getElementById('drop-remove');
 
-            var containerEl = document.getElementById('external-events'); // engadido
+            // var containerEl = document.getElementById('external-events'); // engadido
 
                 var data =   @this.events;
                 var calendar = new Calendar(calendarEl, {
-/* engadido */
+/* engadido 
  slotMinTime: '09:00:00',
                 slotMaxTime: '22:00:00',
                 slotDuration: '00:15:00',
@@ -38,7 +38,7 @@
                     right: 'timeGridWeek,timeGridDay,listWeek'
                 },
 
-/* fin engadido */
+ fin engadido */
                     events: JSON.parse(data),
                     dateClick(info)  {
                         var title = prompt('Enter Event Title');

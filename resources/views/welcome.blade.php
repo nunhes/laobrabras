@@ -57,8 +57,26 @@
 
                             <div class="ml-12">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
+                                    <p>
+            Clic <a href="{{ route('users.pdf') }}">aquí</a>
+            para descargar en PDF a los usuarios
+        </p>
+        <p>
+            Clic <a href="{{ route('users.excel') }}">aquí</a>
+            para descargar en EXCEL a los usuarios
+        </p>
+
+        <form action="{{ route('users.import.excel') }}" method="post" enctype="multipart/form-data">
+            @csrf
+            
+            @if(Session::has('message'))
+            <p>{{ Session::get('message') }}</p>
+            @endif
+
+            <input type="file" name="file">
+
+            <button>Importar Usuarios</button>
+        </form>   </div>
                             </div>
                         </div>
 

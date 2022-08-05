@@ -7,6 +7,7 @@ use App\Models\Event;
 use App\Http\Controllers\FullCalendarController;
 
 
+
 Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',
     'prefix'     => 'admin',
@@ -16,9 +17,25 @@ Route::group([
     Route::resource('oftraballo', 'OftraballoController');
     Route::resource('empresa', 'EmpresaController');
     Route::resource('cidadan', 'CidadanController');
+
+    /* enlaces de servizo de oficina: usuarios, permisos e contrasinais */
     Route::resource('user', 'UserController');
     Route::resource('role', 'RoleController');
     Route::resource('permission', 'PermissionController');
+
+    //Route::get('pdfview',array('as'=>'pdfview','uses'=>'CidadanController@pdfview'));
+    //Route::get('pdfview',array('as'=>'pdfview','uses'=>'EmpresaController@pdfview'));
+    /* descargar pdf */
+
+Route::get('user-list-pdf',      'UserController@exportPdf')->name('users.pdf');
+Route::get('user-list-excel',    'UserController@exportExcel')->name('users.excel');
+Route::post('import-list-excel', 'UserController@importExcel')->name('users.import.excel');
+
+
+    // Route::get('/cidadan/pdf', [\App\Http\Controllers\Admin\CidadanController::class, 'createPDF'])->name('cidadan.pdf');
+
+
+
 
     Route::resource('calendar', 'EventController');
 

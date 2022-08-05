@@ -33,12 +33,12 @@
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
                 crossorigin="anonymous"></script>
     </head>
-    <body class="font-sans antialiased">
-    <body>
+    <body class="font-sans antialiased flex flex-col min-h-screen">
         <div class="font-sans text-gray-900 antialiased">
             <div class="bg-blue-400 text-yellow-100 m-0 px-4 py-4 font-light text-2xl leading-none">Servizo de Orientación Laboral</div>
             {{ $slot }}
-            @include('components.footer')
+            <div class="bottom-0 absolute min-w-full">
+            @include('components.footer')</div>
         </div>
 
         @livewireScripts

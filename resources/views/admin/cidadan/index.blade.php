@@ -33,8 +33,9 @@
                                         </div>
                                     </div>
                                 </form>
+                <a class="btn btn-primary" href="{{ URL::to('#') }}">Convertir a PDF</a>
 
-                                <!-- end search form -->
+                <!-- end search form -->
             </div>
         </div>
 
@@ -88,14 +89,14 @@
                                         </th>
                                         <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
                                             {{-- __('Mobil') --}}
-                                            @include('admin.includes.sort-link', ['label' => 'Móbil', 'attribute' => 'tfnomovil'])
+                                            @include('admin.includes.sort-link', ['label' => 'Móbil', 'attribute' => 'tfno1'])
                                         </th>
                                         <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
-                                            {{-- __('Mobil') --}}
-                                            @include('admin.includes.sort-link', ['label' => 'Activo', 'attribute' => 'updated_at'])
+                                            {{-- __('Idade') --}}
+                                            @include('admin.includes.sort-link', ['label' => 'Idade', 'attribute' => 'datanacemento'])
                                         </th>
                                         @canany(['cidadan edit', 'cidadan delete'])
-                                            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-left">
+                                            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light text-right">
                                                 {{ __('Actions') }}
                                             </th>
                                         @endcanany
@@ -131,18 +132,16 @@
                                             </td>
                                             <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
                                                 <div class="text-sm text-gray-900">
-                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->tel2 }}</a>
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->tfno1 }}</a>
                                                 </div>
                                             </td>
                                             <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
                                                 <div class="text-sm text-gray-900">
-                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->gruposbusca }}</a>
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->datanacemento }}</a>
                                                 </div>
                                             </td>
                                             @canany(['cidadan edit', 'cidadan delete'])
                                                 <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
-
-
                                                     <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">
                                                         <!-- compoñente tooltip -->
                                                         <div class="relative flex inline-flex flex-col items-center group">
@@ -204,7 +203,7 @@
                             </div>
                             <div class="py-8">
                                 {{-- $cidadans->links() --}}
-                                {{ $cidadans->appends(request()->query())->links('pagination::tailwind') }}
+                                <span class="uppercase py-2">{{ $cidadans->appends(request()->query())->links('pagination::tailwind') }}</span>
                             </div>
                         </div>
                     </div>

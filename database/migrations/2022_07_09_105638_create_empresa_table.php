@@ -23,7 +23,7 @@ class CreateEmpresaTable extends Migration
             $table->string('enderezo');
             $table->string('fax');
             $table->string('localidade');
-            $table->string('name');
+            $table->string('nome');
             $table->text('notabaja');
             $table->integer('numtrabajadores');
             $table->text('observacions');

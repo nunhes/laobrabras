@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use Admin\UserController;
+
 use App\Http\Livewire\Calendar;
 use App\Models\Event;
 
@@ -26,6 +28,8 @@ Route::get('/', function () {
 /*Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');*/
+
+
 
 /**
  * queremos que as rutas se sometan a autentificación do usuario

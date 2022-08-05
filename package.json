@@ -23,6 +23,7 @@
         "sass-loader": "^10.3.1",
         "sweetalert2": "^11.4.20",
         "tailwindcss": "^3.1.0",
+        "tailwindcss-plugins": "^0.3.0",
         "webpack": "^5.74.0"
     },
     "dependencies": {
