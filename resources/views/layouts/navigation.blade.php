@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-cyan-700 border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-sky-500 border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -6,14 +6,14 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+                        <x-application-logo class="block h-10 w-auto fill-current" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <div class="dropdown">
-                        <button class="dropbtn  inline-flex items-center px-1 pt-6 border-b-2 border-transparent text-sm font-medium leading-5 uppercase text-yellow-100 hover:text-yellow-400 hover:border-red-600 focus:outline-none focus:text-cyan-100 focus:border-orange-300 transition duration-150 ease-in-out">Oficina</button>
+                        <button class="dropbtn inline-flex items-center px-1 pt-6 border-b-2 border-transparent text-sm font-medium leading-5 uppercase text-white hover:text-grey-100 hover: focus:outline-none focus:text-cyan-900  transition duration-150 ease-in-out">Oficina</button>
                         <div class="dropdown-content">
                             <x-nav-link :href="route('permission.index')" :active="request()->routeIs('permission.index')">
                                 {{ __('Permissions') }}
@@ -29,7 +29,6 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Axenda') }}
                     </x-nav-link>
-
                     <x-nav-link :href="route('cidadan.index')" :active="request()->routeIs('cidadan.index')">
                         {{ __('Cidadans') }}
                     </x-nav-link>
@@ -42,9 +41,6 @@
                     <x-nav-link :href="route('offormacion.index')" :active="request()->routeIs('offormacion.index')">
                         {{ __('Formación') }}
                     </x-nav-link>
-{{-- <x-nav-link :href="route('calendar.index')" :active="request()->routeIs('calendar.index')">
-                        {{ __('Axenda') }}
-                    </x-nav-link> --}}
                 </div>
             </div>
 
@@ -52,9 +48,8 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        
                            
-<button class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 uppercase text-yellow-400 focus:outline-none focus:border-orange-300 transition duration-150 ease-in-out">
+                        <button class="flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 uppercase text-yellow-100 focus:outline-none focus:border-orange-300 transition duration-150 ease-in-out">
  <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">

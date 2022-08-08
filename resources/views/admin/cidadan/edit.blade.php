@@ -18,8 +18,9 @@
                     <h2 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-4 pl-6 block sm:inline-block flex">{{ __('Update cidadan') }}</h1>
                     <a href="{{route('cidadan.index')}}" class="mt-4 inline-block no-underline hover:underline text-cyan-600 dark:text-cyan-400">
                         <abbr class="tooltip tooltip--right" data-tooltip="&nbsp; Volver">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                            {{-- __('<< Back to all cidadan') --}}</abbr></a>
+                            <span class="items-center mt-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></span>
+                            {{--  __('<< Back to all cidadan') --}}</abbr>
+                    </a>
                     @if ($errors->any())
                         <ul class="mt-3 list-none list-inside text-sm text-red-400">
                             @foreach ($errors->all() as $error)

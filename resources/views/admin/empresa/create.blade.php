@@ -14,12 +14,12 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-0 pt-4">
-                    <h2 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-4 pl-6 block sm:inline-block flex">{{ __('Create empresa') }}</h2>
+                    <h2 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-4 block sm:inline-block flex">{{ __('Create empresa') }}</h2>
                     <a href="{{route('empresa.index')}}" class="mt-4 inline-block no-underline hover:underline text-cyan-600 dark:text-cyan-400">
-<abbr class="tooltip tooltip--right" data-tooltip="&nbsp; Volver">
+                        <abbr class="tooltip tooltip--right" data-tooltip="&nbsp; Volver">
                             <span class="items-center mt-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></span>
-                            {{-- __('<< Back to all empresa') --}}</abbr>
-</a>
+                            {{--  __('<< Back to all empresa') --}}</abbr>
+                    </a>
                     @if ($errors->any())
                         <ul class="mt-3 list-none list-inside text-sm text-red-400">
                             @foreach ($errors->all() as $error)
@@ -90,7 +90,7 @@
 <div class="py-2">
                             <label for="ofertas_contratacion" class="block font-medium text-sm text-gray-700{{$errors->has('ofertas_contratacion') ? ' text-red-400' : ''}}">{{ __('ofertas_contratacion') }}</label>
                             <input id="ofertas_contratacion" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('ofertas_contratacion') ? ' border-red-400' : ''}}"
-                                   type="text" 
+                                   type="text"
                                    name="ofertas_contratacion"
                                    value="{{ old('ofertas_contratacion') }}"
                             />
@@ -98,14 +98,14 @@
 <div class="py-2">
                                   <label for="ofertas_formacion" class="block font-medium text-sm text-gray-700{{$errors->has('ofertas_formacion') ? ' text-red-400' : ''}}">{{ __('ofertas_formacion') }}</label>
                             <input id="ofertas_formacion" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('ofertas_formacion') ? ' border-red-400' : ''}}"
-                                   type="text" 
+                                   type="text"
                                    name="ofertas_formacion"
                                    value="{{ old('ofertas_formacion') }}"
                             />
                         </div>
                             <label for="notas" class="block font-medium text-sm text-gray-700{{$errors->has('notas') ? ' text-red-400' : ''}}">{{ __('notas') }}</label>
                             <input id="notas" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('notas') ? ' border-red-400' : ''}}"
-                                   type="text" 
+                                   type="text"
                                    name="notas"
                                    value="{{ old('notas') }}"
                             />

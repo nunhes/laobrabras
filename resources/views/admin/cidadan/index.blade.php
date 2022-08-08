@@ -3,16 +3,17 @@
 
                 <div class="flex">
             <div class="w-1/2 p-2 text-left">
-                <h2 class="font-semibold text-xl pt-4 leading-tight">
+                <h2 class="font-semibold text-xl pt-4 leading-tight uppercase">
                     {{ __('Cidadans') }}
         </h2>
 </div>
             <div class="w-1/6 p-2 justify-end">
                 <div class="p-2 w-22 h-22 flex justify-end items-center">
-                    @can('cidadan create')
+                        @can('cidadan create')
                             <div class="d-print-none with-border mt-2 p-0">
-                                <a href="{{ route('cidadan.create') }}" class="text-blue-900 hover:bg-grey-200 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 justify-center">
-<abbr class="tooltip tooltip--bottom" data-tooltip="&nbsp; + Cidadan">
+                                <a href="{{ route('cidadan.create') }}"
+class="text-gray-500 hover:bg-grey-200 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 justify-center">
+<abbr class="tooltip tooltip--bottom" data-tooltip="&nbsp; + Persoa">
 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
 {{-- __('Add Cidadan') --}}</abbr></a>
                             </div>
@@ -33,8 +34,6 @@
                                         </div>
                                     </div>
                                 </form>
-                <a class="btn btn-primary" href="{{ URL::to('#') }}">Convertir a PDF</a>
-
                 <!-- end search form -->
             </div>
         </div>
@@ -62,7 +61,7 @@
                             @endif
                             <div class="min-w-full border-b border-gray-200 shadow">
 
-                    
+
 
                                 <table class="border-collapse table-auto w-full text-sm">
                                     <thead>
@@ -105,12 +104,18 @@
                                     <tbody class="bg-white dark:bg-slate-800">
                                     @foreach($cidadans as $cidadan)
                                         <tr>
+                                            {{-- <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
+                                                <div class="text-sm text-gray-900">
+                                                    <a href="{{route('cidadan.show', $cidadan->id)}}"
+class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->nome }}</a>
+                                                </div>
+                                            </td> --}}
                                             <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
                                                 <div class="text-sm text-gray-900">
                                                     <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->nome }}</a>
                                                 </div>
                                             </td>
-<td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
+                                            <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
                                                 <div class="text-sm text-gray-900">
                                                     <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ $cidadan->apel1 }}</a>
                                                 </div>
@@ -142,7 +147,7 @@
                                             </td>
                                             @canany(['cidadan edit', 'cidadan delete'])
                                                 <td class="border-b border-slate-100 dark:border-slate-700 p-1 pl-8 text-slate-500 dark:text-slate-400">
-                                                    <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">
+                                                   {{-- <a href="{{route('cidadan.show', $cidadan->id)}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">
                                                         <!-- compoñente tooltip -->
                                                         <div class="relative flex inline-flex flex-col items-center group">
                                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -155,7 +160,7 @@
                                                             </div>
                                                         </div>
                                                         <!-- end tooltip -->
-                                                    </a>
+                                                    </a>--}}
 
 
 
@@ -202,8 +207,7 @@
                                 </table>
                             </div>
                             <div class="py-8">
-                                {{-- $cidadans->links() --}}
-                                <span class="uppercase py-2">{{ $cidadans->appends(request()->query())->links('pagination::tailwind') }}</span>
+                               <span class="uppercase py-2">{{ $cidadans->appends(request()->query())->links('pagination::tailwind') }}</span>
                             </div>
                         </div>
                     </div>

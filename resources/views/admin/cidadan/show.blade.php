@@ -4,9 +4,9 @@
         <div class="flex">
             <div class="w-1/2 p-2 text-left">
                 <h2 class="font-semibold text-xl pt-4 leading-tight">
-                    {{ __('Cidadans') }}
-                </h2>
-            </div>
+            {{ __('Cidadans') }}
+        </h2>
+     </div>
             <div class="w-1/6 p-2 justify-end"></div>
             <div class="w-1/3 p-2 text-right"></div>
         </div>
@@ -23,11 +23,11 @@
                         <h2 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-4 pl-6 block sm:inline-block flex">{{ __('Cidadan') }}</h2>
 
                         {{--@if ($errors->any())
-                            <ul class="mt-3 list-none list-inside text-sm text-red-400">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
+                        <ul class="mt-3 list-none list-inside text-sm text-red-400">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
                         @endif--}}
                     </div>
                     <div class="w-1/2 p-2 justify-end">
@@ -324,28 +324,28 @@
                                 <label for="addiccionsnota"
                                        class="block text-sm font-light text-gray-400">{{ __('Adictions') }}</label>
                                 {{$cidadan->created_at}}</div>
-                        </div>
+                </div>
 
 
                         {{-- <div class="w-full px-6 py-4">
-                            <div class="min-w-full border-b border-gray-200 shadow">
-                                <table class="table-fixed w-full text-sm">
-                                    <tbody class="bg-white dark:bg-slate-800">
-                                    <tr>
-                                        <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ __('Name') }}</td>
+                    <div class="min-w-full border-b border-gray-200 shadow">
+                        <table class="table-fixed w-full text-sm">
+                            <tbody class="bg-white dark:bg-slate-800">
+                            <tr>
+                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ __('Name') }}</td>
                                          <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{{$cidadan->nome}}</td>
-                                     </tr>
-         <tr>
-                                         <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ __('Email') }}</td>
-                                         <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{{$cidadan->email}}</td>
-                                     </tr>
-                                     <tr>
-                                         <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ __('Created') }}</td>
-                                         <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{{$cidadan->created_at}}</td>
-                                     </tr>
-                                     </tbody>
-                                 </table>
-                             </div>
+                            </tr>
+<tr>
+                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ __('Email') }}</td>
+                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{{$cidadan->email}}</td>
+                            </tr>
+                            <tr>
+                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 pl-8 text-slate-500 dark:text-slate-400">{{ __('Created') }}</td>
+                                <td class="border-b border-slate-100 dark:border-slate-700 p-4 text-slate-500 dark:text-slate-400">{{$cidadan->created_at}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
                          </div> --}}
                     </div>
                 </div>

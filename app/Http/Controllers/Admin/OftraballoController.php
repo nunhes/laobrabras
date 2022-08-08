@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Oftraballo;
 use Illuminate\Http\Request;
 
+// exportar pdf/excel
+use App\Exports\OftraballoExport;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
+
 class OftraballoController extends Controller
 {
     /**
@@ -135,5 +140,23 @@ class OftraballoController extends Controller
         $this->middleware('can:oftraballo edit', ['only' => ['edit','update']]);
         $this->middleware('can:oftraballo delete', ['only' => ['destroy']]);
     }
+
+    // Función para poder exportar datos en formato excel
+
+    public function export()
+    {
+        return Excel::download(new OftraballoExport, 'oftraballo.xlsx');
+        return redirect()->route('oftraballo.index');
+    }
+
+// Función para poder exportar datos en formato PDF
+
+    public function exportpdf()
+    {
+        return Excel::download(new OftraballoExport, 'oftraballo.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+        return redirect()->route('oftraballo.index');
+    }
+
+
 
 }

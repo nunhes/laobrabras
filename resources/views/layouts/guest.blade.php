@@ -16,22 +16,23 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-      <!-- evitar vite -->  
+        <!-- evitar vite -->  
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
         
-      <!-- Styles -->
+        <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+        <!-- Livewire Styles -->
          @livewireStyles
 
       <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
 
-        <script
+        <!-- script
                 src="https://code.jquery.com/jquery-3.6.0.min.js"
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-                crossorigin="anonymous"></script>
+                crossorigin="anonymous"></script -->
     </head>
     <body class="font-sans antialiased flex flex-col min-h-screen">
         <div class="font-sans text-gray-900 antialiased">
