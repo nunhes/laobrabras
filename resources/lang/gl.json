@@ -2,5 +2,14 @@
   "July": "Xullo",
   "for": "para",
   "create": "crear",
-  "edit": "editar"
+  "Create": "Crear",
+  "edit": "editar",
+  "Edit": "Editar",
+ "Search":"Buscar",
+ "Delete":"Eliminar",
+ "Back":"Volver",
+ "Update":"Actualizar",
+ "Whoops, something went wrong": "Ups! Algo non foi ben!",
+"Login":"Iniciar sesión"
+
 }

@@ -42,6 +42,7 @@
             @include('components.footer')</div>
         </div>
 
+<!-- Livewire Scripts -->
         @livewireScripts
         
     </body>
