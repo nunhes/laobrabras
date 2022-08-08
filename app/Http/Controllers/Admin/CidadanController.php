@@ -62,7 +62,7 @@ class CidadanController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required|string|max:255:'.config('cidadan.table_names.cidadans', 'cidadans').',name',
+            'nome' => 'required|string|max:255:'.config('cidadan.table_names.cidadans', 'cidadans').',nome',
         ]);
         Cidadan::create($request->all());
         return redirect()->route('cidadan.index')
@@ -104,7 +104,7 @@ class CidadanController extends Controller
     {
         // add
         $request->validate([
-            'name' => 'required|string|max:255:'.config('cidadan.table_names.cidadans', 'cidadans').',name,'.$cidadan->id,
+            'nome' => 'required|string|max:255:'.config('cidadan.table_names.cidadans', 'cidadans').',nome,'.$cidadan->id,
         ]);
         $cidadan->update($request->all());
         return redirect()->route('cidadan.index')

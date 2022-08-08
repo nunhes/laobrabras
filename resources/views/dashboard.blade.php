@@ -1,9 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-
-        <div class="flex">
-            <div class="w-1/2 p-2 text-left">
-                <h2 class="font-semibold text-xl pt-4 leading-tight">
+        <h2 class="font-semibold uppercase text-xl text-gray-800 leading-tight py-6">
             {{ __('Axenda') }}
         </h2>
 </div>
@@ -20,7 +17,7 @@
 
                    <!-- add calendar -->
 
-                    @livewireStyles
+                    {{-- @livewireStyles  --}}
                     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
                     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -32,16 +29,8 @@
                     @stack('scripts')
 
 
-
-
                 </div>
             </div>
         </div>
     </div>
-
-
-
-    </body>
-    </html>
-
 </x-app-layout>

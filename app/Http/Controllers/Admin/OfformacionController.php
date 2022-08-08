@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Offormacion;
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 class OfformacionController extends Controller
 {
     /**
@@ -59,12 +61,20 @@ class OfformacionController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required|string|max:255:'.config('offormacion.table_names.offormacions', 'offormacions').',name',
+            'nome' => 'required|string|max:255:'.config('offormacion.table_names.offormacions', 'offormacions').',nome',
+            //'dataata' =>'required',
+            //'dantadende' =>'required',
         ]);
+
+        /*$keys = ['dataata','datadende'];
+
+        foreach ($keys as $key) {
+            $data[$key] = \Carbon::createFromFormat('d-m-y', $data[$key])->format('d-m-Y');
+        }*/
+
         Offormacion::create($request->all());
         return redirect()->route('offormacion.index')
             ->with('message','Oferta de formación created successfully.');
-    
     }
 
     /**
@@ -102,12 +112,11 @@ class OfformacionController extends Controller
     {
         // add
         $request->validate([
-            'name' => 'required|string|max:255:'.config('offormacion.table_names.offormacions', 'offormacions').',name,'.$offormacion->id,
+            'nome' => 'required|string|max:255:'.config('offormacion.table_names.offormacions', 'offormacions').',nome,'.$offormacion->id,
         ]);
         $offormacion->update($request->all());
         return redirect()->route('offormacion.index')
             ->with('message','Oferta de formación updated successfully.');
-   
     }
 
     /**
@@ -122,7 +131,6 @@ class OfformacionController extends Controller
         $offormacion->delete();
         return redirect()->route('offormacion.index')
             ->with('message','Oferta de formación  deleted successfully');
-  
     }
 
 /**

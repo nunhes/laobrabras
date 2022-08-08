@@ -3,8 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
@@ -16,19 +14,18 @@
         <link rel="manifest" href="/site.webmanifest">
 
         <!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-      <!-- evitar vite -->
+        <!-- evitar vite -->  
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
-          <!-- Styles -->
-         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
 
         <!-- Livewire Styles -->
         @livewireStyles
 
-<!-- Scripts -->
+        <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
 
@@ -38,7 +35,7 @@
                 crossorigin="anonymous"></script-->
     </head>
     <body class="font-sans antialiased flex flex-col min-h-screen">
-        <div class="bg-gray-100 min-h-screen">
+        <div class="bg-blue-100 min-h-screen">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

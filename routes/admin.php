@@ -4,8 +4,8 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Livewire\Calendar;
 use App\Models\Event;
-use App\Http\Controllers\FullCalendarController;
-
+// use App\Http\Controllers\FullCalendarController;
+use App\Http\Controllers\Admin\OftraballoController;
 
 
 Route::group([
@@ -23,25 +23,15 @@ Route::group([
     Route::resource('role', 'RoleController');
     Route::resource('permission', 'PermissionController');
 
-    //Route::get('pdfview',array('as'=>'pdfview','uses'=>'CidadanController@pdfview'));
-    //Route::get('pdfview',array('as'=>'pdfview','uses'=>'EmpresaController@pdfview'));
-    /* descargar pdf */
-
-Route::get('user-list-pdf',      'UserController@exportPdf')->name('users.pdf');
-Route::get('user-list-excel',    'UserController@exportExcel')->name('users.excel');
-Route::post('import-list-excel', 'UserController@importExcel')->name('users.import.excel');
-
-
-    // Route::get('/cidadan/pdf', [\App\Http\Controllers\Admin\CidadanController::class, 'createPDF'])->name('cidadan.pdf');
-
-
-
-
     Route::resource('calendar', 'EventController');
 
+    // Ruta para exportar en excel
+    Route::get('export', [OftraballoController::class, 'export'])->name('admin.export');
+   
 
 
-    Route::get('/booking',[FullCalendarController::class, 'index']);
+
+    // Route::get('/booking',[FullCalendarController::class, 'index']);
 
    // Route::get('/calendar', 'EventController');
     /* Route::post('/calendar/create-event', 'EventController@create');

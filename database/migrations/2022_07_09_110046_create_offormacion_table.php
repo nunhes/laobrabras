@@ -15,7 +15,15 @@ class CreateOfformacionTable extends Migration
     {
         Schema::create('offormacions', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('dataata');
+            $table->string('datadende');
+            $table->string('lugar');
+            $table->string('nome');
+            $table->string('numhoras');
+            $table->string('numprazas');
+            $table->string('tipo');
+            $table->string('accionsfe_id');
+            $table->string('id_empresa');
             $table->timestamps();
         });
     }

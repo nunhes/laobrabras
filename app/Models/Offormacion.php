@@ -9,9 +9,18 @@ class Offormacion extends Model
 {
     use HasFactory;
 
-     protected $fillable = [
-        'name',
+    protected $fillable = [
+        'nome',
+        'dataata',
+        'datadende',
+        'lugar',
+        'numhoras',
+        'numprazas',
+        'tipo',
+        'id_empresa',
+        'accionsfe_id',
         'updated_at',
         'created_at'
     ];
 }
+

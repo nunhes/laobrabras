@@ -3,8 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
@@ -16,43 +14,32 @@
         <link rel="manifest" href="/site.webmanifest">
 
         <!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-      <!-- evitar vite -->
+        <!-- evitar vite -->  
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
-          <!-- Styles -->
-         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+        
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
         <!-- Livewire Styles -->
-        @livewireStyles
+         @livewireStyles
 
-<!-- Scripts -->
+      <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
 
-        <!--script
+        <!-- script
                 src="https://code.jquery.com/jquery-3.6.0.min.js"
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-                crossorigin="anonymous"></script-->
+                crossorigin="anonymous"></script -->
     </head>
     <body class="font-sans antialiased flex flex-col min-h-screen">
-        <div class="bg-gray-100 min-h-screen">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            <header class="bg-transparent">
-                <div class="max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-                @include('components.footer')
+        <div class="font-sans text-gray-900 antialiased">
+            <div class="bg-blue-400 text-yellow-100 m-0 px-4 py-4 font-light text-2xl leading-none">Servizo de Orientación Laboral</div>
+            {{ $slot }}
+            <div class="bottom-0 absolute min-w-full">
+            @include('components.footer')</div>
         </div>
 
 <!-- Livewire Scripts -->

@@ -7,9 +7,19 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="px-6">
+                <div class="mt-3 px-6 flex items-center">
                     <h1 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-4 block sm:inline-block flex">{{ __('Create user') }}</h1>
-                    <a href="{{route('user.index')}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">{{ __('<< Back to all users') }}</a>
+                    <a href="{{route('user.index')}}" class="no-underline hover:underline text-cyan-600 dark:text-cyan-400">
+                        <!-- compoñente tooltip -->
+                        <div class="relative flex inline-flex flex-col items-center group">
+                            <span class="items-center mt-4"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg></span>
+
+                            <div class="absolute bottom-0 flex flex-col items-center hidden mb-6 group-hover:flex">
+                                <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg">{{__('Back') }}</span>
+                                <div class="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
+                            </div>
+                        </div>
+                        <!-- end tooltip --></a>
                     @if ($errors->any())
                         <ul class="mt-3 list-none list-inside text-sm text-red-400">
                             @foreach ($errors->all() as $error)
@@ -22,31 +32,31 @@
                     <form method="POST" action="{{ route('user.store') }}">
                         @csrf
                         <div class="py-2">
-                            <label for="name" class="block font-medium text-sm text-gray-700{{$errors->has('name') ? ' text-red-400' : ''}}">{{ __('Name') }}</label>
-                            <input id="name" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('name') ? ' border-red-400' : ''}}"
+                            <label for="name" class="block font-medium uppercase text-sm text-gray-400{{$errors->has('name') ? ' text-red-400' : ''}}">{{ __('Name') }}</label>
+                            <input id="name" class="rounded-sm shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('name') ? ' border-red-400' : ''}}"
                                    type="text"
                                    name="name"
                                    value="{{ old('name') }}"
                             />
                         </div>
                         <div class="py-2">
-                            <label for="email" class="block font-medium text-sm text-gray-700{{$errors->has('email') ? ' text-red-400' : ''}}">{{ __('Email') }}</label>
-                            <input id="email" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('email') ? ' border-red-400' : ''}}"
+                            <label for="email" class="block font-medium uppercase text-sm text-gray-400{{$errors->has('email') ? ' text-red-400' : ''}}">{{ __('Email') }}</label>
+                            <input id="email" class="rounded-sm shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('email') ? ' border-red-400' : ''}}"
                                    type="email"
                                    name="email"
                                    value="{{ old('email') }}"
                             />
                         </div>
                         <div class="py-2">
-                            <label for="password" class="block font-medium text-sm text-gray-700{{$errors->has('password') ? ' text-red-400' : ''}}">{{ __('Password') }}</label>
-                            <input id="password" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('password') ? ' border-red-400' : ''}}"
+                            <label for="password" class="block font-medium uppercase text-sm text-gray-400{{$errors->has('password') ? ' text-red-400' : ''}}">{{ __('Password') }}</label>
+                            <input id="password" class="rounded-sm shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('password') ? ' border-red-400' : ''}}"
                                    type="password"
                                    name="password"
                             />
                         </div>
                         <div class="py-2">
-                            <label for="password_confirmation" class="block font-medium text-sm text-gray-700{{$errors->has('password') ? ' text-red-400' : ''}}">{{ __('Password Confirmation') }}</label>
-                            <input id="password_confirmation" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('password') ? ' border-red-400' : ''}}"
+                            <label for="password_confirmation" class="block font-medium uppercase text-sm text-gray-400{{$errors->has('password') ? ' text-red-400' : ''}}">{{ __('Password Confirmation') }}</label>
+                            <input id="password_confirmation" class="rounded-sm shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->has('password') ? ' border-red-400' : ''}}"
                                    type="password"
                                    name="password_confirmation"
                             />

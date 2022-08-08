@@ -7,7 +7,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="px-6">
+                <div class="mt-3 px-6 flex items-center">
                     <h1 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-4 block sm:inline-block flex">{{ __('Account Info') }}</h1>
                     @if ($errors->account->any())
                         <ul class="mt-3 list-none list-inside text-sm text-red-400">
@@ -26,16 +26,16 @@
                     <form method="POST" action="{{ route('admin.account.info.store') }}">
                         @csrf
                         <div class="py-2">
-                            <label for="name" class="block font-medium text-sm text-gray-700{{$errors->account->has('name') ? ' text-red-400' : ''}}">{{ __('Name') }}</label>
-                            <input id="name" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->account->has('name') ? ' border-red-400' : ''}}"
+                            <label for="name" class="block font-medium uppercase text-sm text-gray-400{{$errors->account->has('name') ? ' text-red-400' : ''}}">{{ __('Name') }}</label>
+                            <input id="name" class="rounded-none shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->account->has('name') ? ' border-red-400' : ''}}"
                                    type="text"
                                    name="name"
                                    value="{{ old('name', $user->name) }}"
                             />
                         </div>
                         <div class="py-2">
-                            <label for="email" class="block font-medium text-sm text-gray-700{{$errors->account->has('email') ? ' text-red-400' : ''}}">{{ __('Email') }}</label>
-                            <input id="email" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->account->has('email') ? ' border-red-400' : ''}}"
+                            <label for="email" class="block font-medium uppercase text-sm text-gray-400{{$errors->account->has('email') ? ' text-red-400' : ''}}">{{ __('Email') }}</label>
+                            <input id="email" class="rounded-none shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->account->has('email') ? ' border-red-400' : ''}}"
                                    type="email"
                                    name="email"
                                    value="{{ old('email', $user->email) }}"
@@ -54,7 +54,7 @@
     <div class="py-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="px-6">
+                <div class="mt-3 px-6 flex items-center">
                     <h1 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-4 block sm:inline-block flex">{{ __('Change Password') }}</h1>
                     @if ($errors->password->any())
                         <ul class="mt-3 list-none list-inside text-sm text-red-400">
@@ -73,22 +73,22 @@
                     <form method="POST" action="{{ route('admin.account.password.store') }}">
                         @csrf
                         <div class="py-2">
-                            <label for="old_password" class="block font-medium text-sm text-gray-700{{$errors->password->has('old_password') ? ' text-red-400' : ''}}">{{ __('Old Password') }}</label>
-                            <input id="old_password" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->password->has('old_password') ? ' border-red-400' : ''}}"
+                            <label for="old_password" class="block font-medium uppercase text-sm text-gray-400{{$errors->password->has('old_password') ? ' text-red-400' : ''}}">{{ __('Old Password') }}</label>
+                            <input id="old_password" class="rounded-none shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->password->has('old_password') ? ' border-red-400' : ''}}"
                                    type="password"
                                    name="old_password"
                             />
                         </div>
                         <div class="py-2">
-                            <label for="new_password" class="block font-medium text-sm text-gray-700{{$errors->password->has('new_password') ? ' text-red-400' : ''}}">{{ __('New Password') }}</label>
-                            <input id="new_password" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->password->has('new_password') ? ' border-red-400' : ''}}"
+                            <label for="new_password" class="block font-medium uppercase text-sm text-gray-400{{$errors->password->has('new_password') ? ' text-red-400' : ''}}">{{ __('New Password') }}</label>
+                            <input id="new_password" class="rounded-sm shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->password->has('new_password') ? ' border-red-400' : ''}}"
                                    type="password"
                                    name="new_password"
                             />
                         </div>
                         <div class="py-2">
-                            <label for="confirm_password" class="block font-medium text-sm text-gray-700{{$errors->password->has('confirm_password') ? ' text-red-400' : ''}}">{{ __('Confirm password') }}</label>
-                            <input id="confirm_password" class="rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->password->has('confirm_password') ? ' border-red-400' : ''}}"
+                            <label for="confirm_password" class="block font-medium uppercase text-sm text-gray-400{{$errors->password->has('confirm_password') ? ' text-red-400' : ''}}">{{ __('Confirm password') }}</label>
+                            <input id="confirm_password" class="rounded-sm shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block mt-1 w-full{{$errors->password->has('confirm_password') ? ' border-red-400' : ''}}"
                                    type="password"
                                    name="confirm_password"
                             />

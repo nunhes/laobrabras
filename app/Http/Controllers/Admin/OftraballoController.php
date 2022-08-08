@@ -65,7 +65,7 @@ class OftraballoController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required|string|max:255:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',name',
+            'posto' => 'required|string|max:255:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',posto',
         ]);
         Oftraballo::create($request->all());
         return redirect()->route('oftraballo.index')
@@ -108,7 +108,7 @@ class OftraballoController extends Controller
     {
          // add
         $request->validate([
-            'name' => 'required|string|max:255:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',name,'.$oftraballo->id,
+            'posto' => 'required|string|max:255:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',posto,'.$oftraballo->id,
         ]);
         $oftraballo->update($request->all());
         return redirect()->route('oftraballo.index')

@@ -171,6 +171,7 @@ return [
  Laravel\Sail\SailServiceProvider::class,
  Laravel\Sanctum\SanctumServiceProvider::class,
  Laravel\Tinker\TinkerServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
 
 
@@ -179,7 +180,7 @@ return [
          * Package Service Providers...
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
+
         /*
          * Scaffold interface
          * https://github.com/amranidev/scaffold-interface
@@ -253,7 +254,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'Carbon' => 'Carbon\Carbon',
     ],
 
 ];

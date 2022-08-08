@@ -13,13 +13,22 @@
                         <div class="d-print-none with-border mt-2 p-0">
                             <a href="{{ route('empresa.create') }}"
                                class="text-gray-500 hover:bg-grey-200 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 justify-center">
-                                <abbr class="tooltip tooltip--bottom" data-tooltip="&nbsp; + Empresa">
+                                <!-- compoñente tooltip -->
+                                <div class="relative flex inline-flex flex-col items-center group">
                                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                          xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                               d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                     </svg>
-                                    {{-- __('Add Empresa')  --}}</abbr></a>
+                                    {{-- __('Add Empresa')  --}}
+                                    <div class="absolute bottom-0 flex flex-col items-center hidden mb-6 group-hover:flex">
+                                        <span class="relative z-10 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg"> {{__('Empresa') }}</span>
+                                        <div class="w-3 h-3 -mt-2 rotate-45 bg-black"></div>
+                                    </div>
+                                </div>
+                                <!-- end tooltip -->
+
+                                    </a>
                             </div>
                         @endcan
                                 </div>
@@ -31,7 +40,7 @@
                                     <div class="py-2 flex">
                                         <div class="overflow-hidden flex pl-4">
                             <input type="search" name="search" value="{{ request()->input('search') }}"
-                                   class="rounded-none shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="Search">
+                                   class="rounded-none shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="{{__('Search') }}">
                                             <button type='submit' class='ml-2 inline-flex items-center px-2 py-2 bg-tranparent border border-transparent rounded-md font-semibold text-xs  tracking-widest hover:bg-blue-200 active:bg-gray-200 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150'>
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg> {{--  __('Search')  --}}
                                             </button>
@@ -47,7 +56,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-2 pt-0 bg-white border-b border-gray-200">
-                    <div class="flex flex-col mt-8">
+                    <div class="flex flex-col mt-2">
 
                         <div class="py-2">
                             @if(session()->has('message'))

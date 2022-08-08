@@ -9,9 +9,19 @@ class Oftraballo extends Model
 {
     use HasFactory;
 
-     protected $fillable = [
-        'name',
+    protected $fillable = [
+        'posto',
+        'data',
+        'nummeses',
+        'numpostosofertados',
+        'observacions',
+        'accionsfe_id',
+        'id_empresa',
+        'categoriaprofesional_id',
+        'estudiosminimos',
         'updated_at',
         'created_at'
     ];
 }
+
+
