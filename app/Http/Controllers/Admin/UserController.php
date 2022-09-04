@@ -104,7 +104,7 @@ class UserController extends Controller
 
         // Redirect with message
         return redirect()->route('user.index')
-            ->with('message','User created successfully.');
+            ->with('message','Usuario creado con éxito.');
     }
 
     /**
@@ -162,7 +162,7 @@ class UserController extends Controller
         $roles = $request->roles ?? [];
         $user->syncRole($roles);
         return redirect()->route('user.index')
-            ->with('message','User updated successfully.');
+            ->with('message','Usuario actualizado con éxito.');
     }
 
     /**
@@ -177,7 +177,7 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('user.index')
-            ->with('message','User deleted successfully');
+            ->with('message','Usuario eliminado con éxito.');
     }
 
     public function accountInfo()
@@ -196,7 +196,7 @@ class UserController extends Controller
         if ($user) {
             $message = "Account updated successfully.";
         } else {
-            $message = "Error while saving. Please try again.";
+            $message = "Erro ao gardar. Intentar de novo.";
         }
         return redirect()->route('admin.account.info')->with('account_message', $message);
     }
@@ -212,7 +212,7 @@ class UserController extends Controller
             if ($validator->failed()) return;
             if (! Hash::check($request->input('old_password'), \Auth::user()->password)) {
                 $validator->errors()->add(
-                    'old_password', 'Old password is incorrect.'
+                    'old_password', 'Contrasinal anterior incorrecto.'
                 );
             }
         });
@@ -221,16 +221,16 @@ class UserController extends Controller
             'password' => Hash::make($request->input('old_password')),
         ]);
         if ($user) {
-            $message = "Password updated successfully.";
+            $message = "Contrasinal actualizado con éxito.";
         } else {
-            $message = "Error while saving. Please try again.";
+            $message = "Erro ao gardar. Intentar de novo.";
         }
         return redirect()->route('admin.account.info')->with('password_message', $message);
     }
 
 
 /*
-* exportar a PDF/Excel 
+* exportar a PDF/Excel
 */
     public function exportPdf()
     {

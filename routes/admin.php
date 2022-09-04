@@ -4,9 +4,10 @@
 use Illuminate\Support\Facades\Route;
 // use App\Http\Livewire\Calendar;
 use App\Models\Event;
-// use App\Http\Controllers\FullCalendarController;
+
 use App\Http\Controllers\Admin\OftraballoController;
 
+    use App\Http\Controllers\FullCalenderController;
 
 Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',
@@ -25,22 +26,22 @@ Route::group([
 
     Route::resource('calendar', 'EventController');
 
+
     // Ruta para exportar en excel
-    Route::get('export', [OftraballoController::class, 'export'])->name('admin.export');
-   
+    Route::get('exportexcel', [OftraballoController::class, 'exportExcel'])->name('exportexcel');
 
 
 
     // Route::get('/booking',[FullCalendarController::class, 'index']);
 
-   // Route::get('/calendar', 'EventController');
+    // Route::get('/calendar', 'EventController');
     /* Route::post('/calendar/create-event', 'EventController@create');
     Route::post('/calendar/create-event', 'EventController@edit');
     Route::post('/calendar/create-event', 'EventController@destroy');*/
-//Route::get('calendar', [\EventController::class, 'index'])->name('calendar.index');
-//Route::post('calendar/create-event', [\EventController::class, 'create'])->name('calendar.create');
-//Route::patch('calendar/edit-event', [\EventController::class, 'edit'])->name('calendar.edit');
-//Route::delete('calendar/remove-event', [\EventController::class, 'destroy'])->name('calendar.destroy');
+    //Route::get('calendar', [\EventController::class, 'index'])->name('calendar.index');
+    //Route::post('calendar/create-event', [\EventController::class, 'create'])->name('calendar.create');
+    //Route::patch('calendar/edit-event', [\EventController::class, 'edit'])->name('calendar.edit');
+    //Route::delete('calendar/remove-event', [\EventController::class, 'destroy'])->name('calendar.destroy');
 
 
     Route::get('edit-account-info', 'UserController@accountInfo')->name('admin.account.info');

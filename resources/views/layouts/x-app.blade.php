@@ -1,59 +1,62 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- favicon.io -->
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+  <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- evitar vite -->  
-        {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        
+  <!-- favicon.io -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-        <!-- Livewire Styles -->
-        @livewireStyles
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- evitar vite -->
+{{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
 
+  <!-- Styles -->
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        <!--script
-                src="https://code.jquery.com/jquery-3.6.0.min.js"
-                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-                crossorigin="anonymous"></script-->
-    </head>
-    <body class="font-sans antialiased flex flex-col min-h-screen">
-        <div class="bg-blue-100 min-h-screen">
-            @include('layouts.navigation')
+  <!-- Livewire Styles -->
+  @livewireStyles
 
-            <!-- Page Heading -->
-            <header class="bg-transparent">
-                <div class="max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
+  <!-- Scripts -->
+  <script src="{{ asset('js/app.js') }}" defer></script>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-                @include('components.footer')
-        </div>
+</head>
 
-<!-- Livewire Scripts -->
-        @livewireScripts
-        
-    </body>
+<body class="font-sans antialiased bg-gray-100">
+<div id="page-container">
+
+    @include('layouts.navigation')
+
+    <!-- Page Heading -->
+    <header class="bg-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {{ $header }}
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main>
+      {{ $slot }}
+    </main>
+  </div>
+
+  @include('components.footer')
+  </div>
+  <!-- Livewire Scripts -->
+  @livewireScripts
+
+</body>
+
 </html>

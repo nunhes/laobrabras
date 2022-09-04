@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="gl">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tails Downloaded File</title>
+    <title>Formaweb iv - Programa de emprego</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -12,29 +12,31 @@
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body style="font-family: Nunito">
+<body>
 
 <!-- Section 1 -->
-<section class="w-full px-8 text-gray-700 bg-white">
+<section class="w-full px-8 text-gray-700 bg-sky-500">
     <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
         <div class="relative flex flex-col md:flex-row">
-            <a href="#_" class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
-                <span class="mx-auto text-xl font-black leading-none text-gray-900 select-none">S.O.L.<span class="text-green-600">.</span></span>
+            <a href="/" class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
+                <span class="mx-auto text-xl font-black leading-none text-gray-900 select-none">S.O.L<span class="text-yellow-500">.</span></span>
             </a>
-            <nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
-                <a href="/" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Home</a>
-                <a href="#aboutme" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Documentación</a>
-                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Datos</a>
+            <nav class="flex flex-wrap uppercase items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
+                <a href="/" class="mr-5 font-medium leading-6 text-gray-100 hover:underline hover:text-gray-900">Início</a>
+                <a href="/programa" class="mr-5 font-medium leading-6 text-gray-100 hover:underline hover:text-gray-900">Programa de emprego</a>
+                <a href="/manual" class="mr-5 font-medium leading-6 text-gray-100 hover:underline hover:text-gray-900">Manual</a>
             </nav>
         </div>
 
         <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
-            <a href="#" class="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
-                Sign in
-            </a>
-            <a href="#" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-green-600 border border-transparent shadow-sm hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 rounded-none">
-                Sign up
-            </a>
+           <span class="flex flex-row items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#cccccc"
+                 stroke-width="2" class="pr-1 -mt-px w-6 h-6 text-gray-400">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+            </svg>
+            <a href="{{ route('login') }}" class=" font-medium leading-6 text-gray-300 uppercase hover:underline hover:text-gray-900">Incia sesión</a>
+          </span>
         </div>
     </div>
 </section>
@@ -43,7 +45,7 @@
 <!-- Section 3 -->
 <section class="py-24 bg-white">
     <div class="px-8 mx-auto max-w-7xl lg:px-16">
-        <h2 class="mb-4 text-xl font-bold md:text-3xl">Frequently Asked Questions</h2>
+        <h2 class="mb-4 text-xl font-bold md:text-3xl">Aplicación S.O.L.</h2>
         <div class="grid grid-cols-1 gap-0 text-gray-600 md:grid-cols-2 md:gap-16">
             <div>
                 <h5 class="mt-10 mb-3 font-semibold text-gray-900">What is Tails</h5>
@@ -151,7 +153,7 @@
                             <h2 class="text-5xl font-bold text-gray-900 xl:text-6xl">Features to help you work smarter</h2>
                         </div>
                         <p class="text-2xl text-gray-700">We've created a simple formula to follow in order to gain more out of your business and your application.</p>
-                        <a href="#_" class="inline-block px-8 py-5 text-xl font-medium text-center text-white transition duration-200 bg-green-600 hover:bg-green-700 ease rounded-none">Get Started Today</a>
+                        <a href="/" class="inline-block px-8 py-5 text-xl font-medium text-center text-white transition duration-200 bg-green-600 hover:bg-green-700 ease rounded-none">Get Started Today</a>
                     </div>
                 </div>
             </div>

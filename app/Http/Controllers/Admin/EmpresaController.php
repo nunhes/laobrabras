@@ -6,6 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
 
+// exportar pdf/excel
+use App\Exports\EmpresaExport;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
+
+use Carbon\Carbon;
+
 use DB;
 // use PDF;
 
@@ -18,10 +25,15 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        // add
+
+      //* engadir argumentos de busca
         $empresas = (new Empresa)->newQuery();
         if (request()->has('search')) {
-            $empresas->where('nome', 'Like', '%' . request()->input('search') . '%');
+            $empresas->where('nome', 'Like', '%' . request()->input('search') . '%')
+            ->orWhere('localidade', 'Like', '%' . request()->input('search') . '%')
+            ->orWhere('enderezo', 'Like', '%' . request()->input('search') . '%')
+            ->orWhere('email', 'Like', '%' . request()->input('search') . '%')
+            ->orWhere('codpostal', 'Like', '%' . request()->input('search') . '%');
         }
 
         if (request()->query('sort')) {
@@ -36,9 +48,9 @@ class EmpresaController extends Controller
             $empresas->latest();
         }
 
-        $empresas = $empresas->paginate(5);
+        $empresas = $empresas->paginate(10);
         return view('admin.empresa.index',compact('empresas'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+            ->with('i', (request()->input('page', 1) - 1) * 10);
     }
 
     /**
@@ -62,11 +74,14 @@ class EmpresaController extends Controller
     {
         //
         $request->validate([
-            'nome' => 'required|string|max:255:'.config('empresa.table_names.empresas', 'empresas').',nome',
+            'nome' => 'required|string:'.config('empresa.table_names.empresas', 'empresas').',nome',
+          'web' => 'required|string:'.config('empresa.table_names.empresas', 'empresas').',web',
+          'enderezo' => 'required|string:'.config('empresa.table_names.empresas', 'empresas').',enderezo',
+          'localidade' => 'required|string:'.config('empresa.table_names.empresas', 'empresas').',localidade',
         ]);
         Empresa::create($request->all());
         return redirect()->route('empresa.index')
-            ->with('message','Empresa created successfully.');
+            ->with('message','Datos da empresa creados con éxito.');
     }
 
     /**
@@ -104,12 +119,12 @@ class EmpresaController extends Controller
     {
             // add
         $request->validate([
-            'nome' => 'required|string|max:255:'.config('empresa.table_names.empresas', 'empresas').',nome,'.$empresa->id,
+            'nome' => 'required|string:'.config('empresa.table_names.empresas', 'empresas').',nome,'.$empresa->id,
         ]);
         $empresa->update($request->all());
         return redirect()->route('empresa.index')
-            ->with('message','Empresa updated successfully.');
-    
+            ->with('message','Datos da empresa actualizados con éxito.');
+
     }
 
     /**
@@ -123,8 +138,8 @@ class EmpresaController extends Controller
         // eliminar empresa existente
         $empresa->delete();
         return redirect()->route('empresa.index')
-            ->with('message','Empresa deleted successfully');
-   
+            ->with('message','Datos da empresa eliminados con éxito');
+
     }
 
 /**
@@ -136,6 +151,22 @@ class EmpresaController extends Controller
         $this->middleware('can:empresa create', ['only' => ['create','store']]);
         $this->middleware('can:empresa edit', ['only' => ['edit','update']]);
         $this->middleware('can:empresa delete', ['only' => ['destroy']]);
+    }
+
+// Función para poder exportar datos en formato excel
+
+    public function exportempresa()
+    {
+        return Excel::download(new EmpresaExport, 'empresas.xlsx');
+        // return redirect()->route('oftraballo.index');
+    }
+
+// Función para poder exportar datos en formato PDF
+
+    public function exportpdfempresa()
+    {
+        return Excel::download(new EmpresaExport, 'empresas.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+        // return redirect()->route('oftraballo.index');
     }
 
 }

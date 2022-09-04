@@ -66,7 +66,16 @@ class Cidadan extends Model
         'updated_at',
         'created_at'
     ];
-}
 
+  /* protected $dates = [
+      'created_at',
+  ];
+
+  /*pub function getCreatedFormatAttribute()
+  {
+      return $this->created_at->format('d/m/Y');
+  }
+  protected $appends = ['created_format'];*/
+}
 
 

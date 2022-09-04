@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-30 h-30 fill-current text-blue-500" />
+                <x-application-logo class="w-30 h-30 fill-current text-gray-500" />
             </a>
         </x-slot>
 
@@ -12,7 +12,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
         <div class="text-center min-w-full pb-7">
-            <h2 class="mx-auto text-blue-900 font-light text-3xl py-5">Inicio de sesión</h2></div>
+            <h2 class="mx-auto text-blue-900 font-light text-2xl py-5">Inicio de sesión</h2></div>
         <form method="POST" action="{{ route('login') }}" class="px-10">
             @csrf
 
@@ -40,7 +40,7 @@
                         {{-- <x-label for="email" :value="__('Email')" /> --}}
                         <x-input id="password" class="block w-full flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border-0 h-10 border-grey-light rounded rounded-l-none px-3 self-center relative outline-none" type="password"
                                  name="password"
-                                 required autocomplete="current-password" placeholder="Contrasinal" autofocus />
+                                 required autocomplete="current-password" placeholder="Contrasinal" autofocus /><!--span class="toggle-password--show" style="display: inline;">Mostrar</span-->
                     </div>
                 </div>
 

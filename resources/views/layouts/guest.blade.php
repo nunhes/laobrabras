@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
+
+<head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
@@ -14,21 +17,24 @@
         <link rel="manifest" href="/site.webmanifest">
 
         <!-- Fonts -->
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-      <!-- evitar vite -->  
+        <!-- evitar vite -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js'])  --}}
-        
-<!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
         <!-- Livewire Styles -->
         @livewireStyles
 
-<!-- Scripts -->
+        <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased flex flex-col min-h-screen">
+
+</head>
+
+    <body class="font-sans antialiased">
         <div class="font-sans text-gray-900 antialiased">
             <div class="bg-blue-400 text-yellow-100 m-0 px-4 py-4 font-light text-2xl leading-none">Servizo de Orientación Laboral</div>
             {{ $slot }}

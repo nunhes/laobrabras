@@ -17,6 +17,7 @@ class CreateMaNacionalidadesTable extends Migration
             $table->bigIncrements('id');
             $table->string('codigo', 10);
             $table->string('nome', 50);
+            $table->timestamps();
         });
     }
 

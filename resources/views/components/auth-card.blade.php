@@ -1,5 +1,5 @@
-<div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-50">
-    <div class="mt-10 md:mt-10 mb-6">
+<div class="flex flex-col sm:justify-center mt-10 items-center pt-6 sm:pt-0">
+    <div class="mt-10 md:mt-10 mb-6 animate-spin items-center">
         {{ $logo }}
     </div>
 

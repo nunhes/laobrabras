@@ -6,16 +6,20 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current" />
+                        <x-application-logo class="block h-10 w-auto fill-current"/>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <div class="dropdown">
-                        <button class="dropbtn inline-flex items-center px-1 pt-6 border-b-2 border-transparent text-sm font-medium leading-5 uppercase text-white hover:text-grey-100 hover: focus:outline-none focus:text-cyan-900  transition duration-150 ease-in-out">Oficina</button>
+                        <button
+                            class="dropbtn inline-flex items-center px-1 pt-6 border-b-2 border-transparent text-sm font-medium leading-5 uppercase text-white hover:text-grey-100 hover: focus:outline-none focus:text-cyan-900  transition duration-150 ease-in-out">
+                            Oficina
+                        </button>
                         <div class="dropdown-content">
-                            <x-nav-link :href="route('permission.index')" :active="request()->routeIs('permission.index')">
+                            <x-nav-link :href="route('permission.index')"
+                                        :active="request()->routeIs('permission.index')">
                                 {{ __('Permissions') }}
                             </x-nav-link>
                             <x-nav-link :href="route('role.index')" :active="request()->routeIs('role.index')">
@@ -29,16 +33,19 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Axenda') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('cidadan.index')" :active="request()->routeIs('cidadan.index')">
+                    <x-nav-link :href="route('asuntos.index')" :active="request()->routeIs('asuntos.*')">
+                        {{ __('Calendar') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('cidadan.index')" :active="request()->routeIs('cidadan.*')">
                         {{ __('Cidadans') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('empresa.index')" :active="request()->routeIs('empresa.index')">
+                    <x-nav-link :href="route('empresa.index')" :active="request()->routeIs('empresa.*')">
                         {{ __('Empresas') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('oftraballo.index')" :active="request()->routeIs('oftraballo.index')">
+                    <x-nav-link :href="route('oftraballo.index')" :active="request()->routeIs('oftraballo.*')">
                         {{ __('Traballo') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('offormacion.index')" :active="request()->routeIs('offormacion.index')">
+                    <x-nav-link :href="route('offormacion.index')" :active="request()->routeIs('offormacion.*')">
                         {{ __('Formación') }}
                     </x-nav-link>
                 </div>
@@ -48,13 +55,17 @@
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                           
- <button class="flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 uppercase text-white focus:outline-none focus:border-blue-300 transition duration-150 ease-in-out">
- <div>{{ Auth::user()->name }}</div>
+
+                        <button
+                            class="flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 uppercase text-white focus:outline-none focus:border-blue-300 transition duration-150 ease-in-out">
+                            <div>{{ Auth::user()->name }}</div>
 
                             <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                          clip-rule="evenodd"/>
                                 </svg>
                             </div>
                         </button>
@@ -62,16 +73,17 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
-                        <x-dropdown-link :href="route('admin.account.info')" :active="request()->routeIs('admin.account.info')">
-                         {{ __('My Account') }}
+                        <x-dropdown-link :href="route('admin.account.info')"
+                                         :active="request()->routeIs('admin.account.info')">
+                            {{ __('Miña conta') }}
                         </x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                             onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log out') }}
+                                {{ __('Pechar sesión') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -80,10 +92,14 @@
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <button @click="open = ! open"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-100 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
+                              stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
                 </button>
             </div>
@@ -91,19 +107,13 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+        <div class="pt-2 pb-3 space-y-1 uppercase">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Axenda') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('permission.index')" :active="request()->routeIs('permission.index')">
-                {{ __('Permissions') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('role.index')" :active="request()->routeIs('role.index')">
-                {{ __('Roles') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')">
-                {{ __('Users') }}
+            <x-responsive-nav-link :href="route('asuntos.index')" :active="request()->routeIs('asuntos')">
+                {{ __('Calendar') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('cidadan.index')" :active="request()->routeIs('cidadan.index')">
                 {{ __('Cidadans') }}
@@ -117,26 +127,37 @@
             <x-responsive-nav-link :href="route('offormacion.index')" :active="request()->routeIs('offormacion.index')">
                 {{ __('Formación') }}
             </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index')" class="bg-gray-500">
+                {{ __('Users') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('role.index')" :active="request()->routeIs('role.index')" class="bg-gray-500">
+                {{ __('Roles') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('permission.index')" :active="request()->routeIs('permission.index')" class="bg-gray-500">
+                {{ __('Permissions') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-50">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-50">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-300">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base uppercase text-gray-50">{{ Auth::user()->name }}</div>
+                <div class="font-medium text-sm uppercase text-gray-300">{{ Auth::user()->email }}</div>
             </div>
 
-            <div class="mt-3 space-y-1">
+            <div class="mt-3 space-y-1 uppercase">
 
-                <x-responsive-nav-link :href="route('admin.account.info')" :active="request()->routeIs('admin.account.info')">
-                {{ __('My Account') }}
+                <x-responsive-nav-link :href="route('admin.account.info')"
+                                       :active="request()->routeIs('admin.account.info')">
+                    {{ __('My Account') }}
                 </x-responsive-nav-link>
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                                           onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>

@@ -16,7 +16,7 @@ class CreateActividadTable extends Migration
         Schema::create('actividad', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('codigo')->nullable();
-            $table->float('coste', 8, 2);
+            $table->float('coste', 10, 2);
             $table->boolean('costeasoc');
             $table->dateTime('datafin')->nullable();
             $table->dateTime('datainicio')->nullable();

@@ -1,12 +1,14 @@
 {
-    "name": "laravel/laravel",
+    "name": "sol/app",
     "type": "project",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "description": "ServizoOrientacionLaboral",
+    "keywords": [
+        "orientacion",
+        "laboral"
+    ],
     "license": "MIT",
     "require": {
-        "php": "^7.4|^8.0",
-        "amranidev/scaffold-interface": "^1.4.32",
+        "php": "^7.3|^8.0",
         "dompdf/dompdf": "^2.0",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -16,7 +18,9 @@
         "livewire/livewire": "^2.10",
         "maatwebsite/excel": "^3.1",
         "spatie/laravel-permission": "^5.5",
-        "ext-json": "*"
+        "spatie/laravel-queueable-action": "^2.14",
+        "ext-json": "*",
+        "ext-pdo": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
@@ -30,6 +34,7 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
+        "spatie/laravel-ignition": "^1.0",
         "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
@@ -47,17 +52,14 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "@php artisan ide-helper:eloquent",
-            "@php artisan ide-helper:generate",
-            "@php artisan ide-helper:meta",
-            "@php artisan ide-helper:models --nowrite",
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
-        "ide-helper":[
+        "ide-helper": [
             "@php artisan ide-helper:eloquent",
             "@php artisan ide-helper:generate",
             "@php artisan ide-helper:meta",

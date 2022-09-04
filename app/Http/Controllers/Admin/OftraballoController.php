@@ -4,12 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Oftraballo;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 // exportar pdf/excel
 use App\Exports\OftraballoExport;
 use Maatwebsite\Excel\Facades\Excel;
 use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
+
+use Carbon\Carbon;
+
+use DB;
+// use PDF;
 
 class OftraballoController extends Controller
 {
@@ -23,7 +29,10 @@ class OftraballoController extends Controller
         // add
         $oftraballos = (new Oftraballo)->newQuery();
         if (request()->has('search')) {
-            $oftraballos->where('name', 'Like', '%' . request()->input('search') . '%');
+            $oftraballos->where('posto', 'Like', '%' . request()->input('search') . '%')
+            ->orWhere('observacions', 'Like', '%' . request()->input('search') . '%')
+            ->orWhere('estudiosminimos', 'Like', '%' . request()->input('search') . '%')
+            ->orWhere('data', 'Like', '%' . request()->input('search') . '%');
         }
 
         if (request()->query('sort')) {
@@ -38,10 +47,10 @@ class OftraballoController extends Controller
             $oftraballos->latest();
         }
 
-        $oftraballos = $oftraballos->paginate(5);
+        $oftraballos = $oftraballos->paginate(10);
         return view('admin.oftraballo.index',compact('oftraballos'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
-   
+            ->with('i', (request()->input('page', 1) - 1) * 10);
+
     }
 
     /**
@@ -63,14 +72,17 @@ class OftraballoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validar datos
         $request->validate([
-            'posto' => 'required|string|max:255:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',posto',
+            'posto' => 'required|string:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',posto',
+            'data' => 'required:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',data',
+            'nummeses' => 'required:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',nummeses',
+          'numpostosofertados' => 'required:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',numpostosofertados',
         ]);
         Oftraballo::create($request->all());
         return redirect()->route('oftraballo.index')
             ->with('message','Oferta de traballo created successfully.');
-    
+
     }
 
     /**
@@ -108,11 +120,14 @@ class OftraballoController extends Controller
     {
          // add
         $request->validate([
-            'posto' => 'required|string|max:255:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',posto,'.$oftraballo->id,
+            'posto' => 'required|string:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',posto,'.$oftraballo->id,
+            'data' => 'required:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',data,'.$oftraballo->id,
+            'nummeses' => 'required:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',nummeses,'.$oftraballo->id,
+          'numpostosofertados' => 'required:'.config('oftraballo.table_names.oftraballos', 'oftraballos').',numpostosofertados,'.$oftraballo->id,
         ]);
         $oftraballo->update($request->all());
         return redirect()->route('oftraballo.index')
-            ->with('message','Oferta de traballo updated successfully.');
+            ->with('message','Oferta de traballo actualizada con éxito.');
     }
 
     /**
@@ -126,8 +141,8 @@ class OftraballoController extends Controller
         // eliminar oferta existente
         $oftraballo->delete();
         return redirect()->route('oftraballo.index')
-            ->with('message','Oferta de traballo deleted successfully');
-   
+            ->with('message','Oferta de traballo eliminada con éxito');
+
     }
 
 /**
@@ -146,7 +161,7 @@ class OftraballoController extends Controller
     public function export()
     {
         return Excel::download(new OftraballoExport, 'oftraballo.xlsx');
-        return redirect()->route('oftraballo.index');
+        //return redirect()->route('oftraballo.index');
     }
 
 // Función para poder exportar datos en formato PDF
@@ -154,9 +169,6 @@ class OftraballoController extends Controller
     public function exportpdf()
     {
         return Excel::download(new OftraballoExport, 'oftraballo.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
-        return redirect()->route('oftraballo.index');
+        //return redirect()->route('oftraballo.index');
     }
-
-
-
 }

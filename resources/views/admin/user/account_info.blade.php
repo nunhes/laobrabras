@@ -1,28 +1,54 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('My Account') }}
-        </h2>
+        <div class="flex items-center">
+            <div class="w-1/5 p-2">
+                <h2 class="font-semibold text-xl pl-4 pt-4 leading-tight">
+                    {{ __('Datos da conta') }}
+                </h2>
+            </div>
+
+            <div class="w-1/2 p-2">
+                <a href="{{route('user.index')}}"
+                   class="mt-3 inline-block no-underline uppercase text-cyan-600">
+                    <!-- compoñente tooltip -->
+                @include('admin.includes.tooltip')
+                <!-- end tooltip -->
+                </a>
+            </div>
+        </div>
     </x-slot>
-    <div class="py-12">
+
+    <div class="py-4 mb-10">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="mt-3 px-6 flex items-center">
-                    <h1 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-4 block sm:inline-block flex">{{ __('Account Info') }}</h1>
-                    @if ($errors->account->any())
-                        <ul class="mt-3 list-none list-inside text-sm text-red-400">
-                            @foreach ($errors->account->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                    @if(session()->has('account_message'))
-                        <div class="mb-8 text-green-400 font-bold">
-                            {{ session()->get('account_message') }}
-                        </div>
-                    @endif
-                </div>
-                <div class="w-full px-6 py-4 bg-white overflow-hidden">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-10">
+
+
+                <div class="grid grid-cols-2">
+                <div class="w-full px-10 py-4 bg-white overflow-hidden">
+                    <h2
+                        class="text-xl sm:text-xl font-medium text-gray-600 tracking-tight py-6 block">
+                        {{ __('Actualizar datos') }}</h2>
+
+                    <div class="mt-3">
+                        @if ($errors->account->any())
+                            <ul class="mt-3 list-none list-inside text-sm text-red-400">
+                                @foreach ($errors->account->all() as $error)
+                                    <li class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                             class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                  d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>&nbsp; {{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+                        @if(session()->has('account_message'))
+                            <div class="mb-8 text-green-400 font-bold">
+                                {{ session()->get('account_message') }}
+                            </div>
+                        @endif
+                    </div>
                     <form method="POST" action="{{ route('admin.account.info.store') }}">
                         @csrf
                         <div class="py-2">
@@ -41,35 +67,48 @@
                                    value="{{ old('email', $user->email) }}"
                             />
                         </div>
-                        <div class="flex justify-end mt-4">
-                            <button type="submit" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                        <div class="flex mt-4 items-center gap-x-2 mt-8 mb-10">
+                            <button type='submit' class="px-4 py-2 text-xs font-semibold text-gray-100 uppercase bg-gray-800 border border-transparent rounded-md tracking-widest shadow-md hover:bg-gray-600 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
                                 {{ __('Update') }}
                             </button>
+                            <a href="{{ route('user.index') }}" type="submit"
+                               class="px-4 py-2 text-xs font-semibold text-gray-100 uppercase bg-gray-400 border border-transparent rounded-md tracking-widest shadow-md hover:bg-gray-600 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                                {{ __('Cancel') }}
+                            </a>
                         </div>
                     </form>
                 </div>
-            </div>
+                <!-- /div>
         </div>
     </div>
     <div class="py-3">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="mt-3 px-6 flex items-center">
-                    <h1 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200 py-4 block sm:inline-block flex">{{ __('Change Password') }}</h1>
-                    @if ($errors->password->any())
-                        <ul class="mt-3 list-none list-inside text-sm text-red-400">
-                            @foreach ($errors->password->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    @endif
-                    @if(session()->has('password_message'))
-                        <div class="mb-8 text-green-400 font-bold">
-                            {{ session()->get('password_message') }}
-                        </div>
-                    @endif
-                </div>
-                <div class="w-full px-6 py-4 bg-white overflow-hidden">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" -->
+
+                <div class="w-full px-10 py-4 bg-white overflow-hidden">
+                    <div class="mt-3">
+                        <h2
+                            class="text-xl sm:text-xl font-medium text-gray-600 tracking-tight py-6 block">
+                            {{ __('Cambiar contrasinal') }}</h2>
+                        @if ($errors->password->any())
+                            <ul class="mt-3 list-none list-inside text-sm text-red-400">
+                                @foreach ($errors->password->all() as $error)
+                                    <li class="flex items-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                             fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                             class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                  d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>&nbsp; {{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+                        @if(session()->has('password_message'))
+                            <div class="mb-8 text-green-400 font-bold">
+                                {{ session()->get('password_message') }}
+                            </div>
+                        @endif
+                    </div>
                     <form method="POST" action="{{ route('admin.account.password.store') }}">
                         @csrf
                         <div class="py-2">
@@ -93,14 +132,14 @@
                                    name="confirm_password"
                             />
                         </div>
-                        <div class="flex justify-end mt-4">
+                        <div class="flex justify-end mt-8 mb-10">
                             <button type='submit' class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150'>
-                                {{ __('Change Password') }}
+                                {{ __('Cambiar contrasinal') }}
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
+    </div></div>
 </x-app-layout>

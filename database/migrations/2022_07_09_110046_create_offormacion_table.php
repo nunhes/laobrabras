@@ -21,9 +21,9 @@ class CreateOfformacionTable extends Migration
             $table->string('nome');
             $table->string('numhoras');
             $table->string('numprazas');
-            $table->string('tipo');
-            $table->string('accionsfe_id');
-            $table->string('id_empresa');
+            $table->string('tipo')->nullable()->change();
+            $table->string('accionsfe_id')->unsigned()->nullable()->change();
+            $table->string('id_empresa')->unsigned()->nullable()->change();
             $table->timestamps();
         });
     }
