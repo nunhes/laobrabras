@@ -17,8 +17,7 @@
                     var Draggable = FullCalendar.Draggable;
                     var calendarEl = document.getElementById('calendar');
                     var checkbox = document.getElementById('drop-remove');
-                    var data = @this.
-                    events;
+                    var data = @this.events;
                     var calendar = new Calendar(calendarEl, {
                         events: JSON.parse(data),
                         dateClick(info) {
@@ -47,14 +46,7 @@
                         selectable: true,
                         displayEventTime: false,
 
-                        // settings
-                /* /* headerToolbar: {
-                      left: 'prev,next today',
-                      center: 'title',
-                     // right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                  },*/
-
-                       headerToolbar: {
+                        headerToolbar: {
                             left: 'title',
                             center: '',
                             right: 'today prev,next'

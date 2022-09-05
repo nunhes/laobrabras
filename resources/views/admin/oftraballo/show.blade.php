@@ -3,7 +3,7 @@
     <div class="flex items-center">
       <div class="w-1/2 p-2">
         <h2 class="font-semibold text-xl pl-4 pt-2 leading-tight uppercase">
-          {{ __('Oferta de traballo') }}
+          {{ __('Oferta de emprego') }}
         </h2>
       </div>
 
@@ -61,7 +61,7 @@
           <div class="flex items-center mt-3">
               <div class="w-1/2 p-2">
                   <h2 class="inline-block text-1xl sm:text-2xl font-medium text-gray-400 tracking-tight py-4 pl-4 block sm:inline-block flex">
-                      {{ __('Oferta de traballo') }}  <span class="text-cyan-600">{{ $oftraballo->id }} </span> </h2>
+                      {{ __('Oferta de emprego') }}  <span class="text-cyan-600">{{ $oftraballo->id }} </span> </h2>
 
           {{-- @if ($errors->any())
             <ul class="mt-3 list-none list-inside text-sm text-red-400">

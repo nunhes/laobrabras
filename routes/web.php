@@ -47,8 +47,8 @@ Route::get('/manual', function () {
         return view('manual');
     });   /** paxina con datos de interese + guia da aplicación  */
 
-   Route::get('/fullcalender', [FullCalenderController::class, 'index']);
-    Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
+   //Route::get('/fullcalender', [FullCalenderController::class, 'index']);
+   //Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
 
     Route::get('events',[\App\Http\Controllers\EventController::class,'index'])->name('events.index');
     Route::post('events/store',[\App\Http\Controllers\EventController::class,'store'])->name('events.store');
@@ -56,7 +56,7 @@ Route::get('/manual', function () {
     Route::get('events/update',[\App\Http\Controllers\EventController::class,'update'])->name('events.update');
     Route::get('events/destroy',[\App\Http\Controllers\EventController::class,'destroy'])->name('events.destroy');
 
-    Route::get('form', [PaiseController::class, 'index']);
+    // Route::get('form', [PaiseController::class, 'index']);
 
 
 // Ruta para exportar en excel para Oftraballo

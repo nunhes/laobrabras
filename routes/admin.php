@@ -7,7 +7,7 @@ use App\Models\Event;
 
 use App\Http\Controllers\Admin\OftraballoController;
 
-    use App\Http\Controllers\FullCalenderController;
+// use App\Http\Controllers\FullCalenderController;
 
 Route::group([
     'namespace'  => 'App\Http\Controllers\Admin',

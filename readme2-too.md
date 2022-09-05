@@ -1,7 +1,5 @@
 
-https://github.com/amranidev/scaffold-interface
-
-https://github.com/amranidev/scaffold-interface
+https://github.com/amranidev/scaffold-interface --- non aqui -- deprecated ????
 
 ver: https://dev.to/tutsmake/laravel-8-tutorial-for-beginners-step-by-step-1i30
 

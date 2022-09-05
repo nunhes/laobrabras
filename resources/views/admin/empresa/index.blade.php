@@ -291,7 +291,7 @@
                                                         @can('empresa delete')
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button class="px-2 py-2" onclick="deleteConfirm(empresa)">
+                                                            <button class="px-2 py-2">
                                                                 <!-- compoñente tooltip -->
                                                                 <div
                                                                     class="relative flex inline-flex flex-col items-center group text-red-600">

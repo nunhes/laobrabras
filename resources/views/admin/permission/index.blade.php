@@ -134,7 +134,7 @@
                                                                                              {{ __('Delete') }}
                                                                                          </button> --}}
 
-                                                            <button class="px-2 py-2" onclick="deleteConfirm(permission)">
+                                                            <button class="px-2 py-2">
                                                                 <!-- compoñente tooltip -->
                                                                 <div class="relative flex inline-flex flex-col items-center group text-red-600">
                                                                     {{-- __('Delete') --}}

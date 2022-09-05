@@ -17,20 +17,11 @@ const tailwindcss = require('tailwindcss'); /* Add this line at the top */
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css', {}, [
-    require('tailwindcss')
-])
-.options({
+    .sass('resources/sass/app.scss', 'public/css')
+    .options({
     processCssUrls: false,
     postCss: [
         tailwindcss('./tailwind.config.js'),
     ]
 })
     .version();
-
-/*  mix.js('resources/js/app.js', 'public/js')
-.postCss('resources/sass/app.scss', 'public/css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-]); */

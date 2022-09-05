@@ -3,7 +3,7 @@
     <div class="flex items-center">
       <div class="w-1/2 p-2">
         <h2 class="font-semibold text-xl pl-2 pt-4 leading-tight uppercase">
-          {{ __('Ofertas de traballo') }}
+          {{ __('Ofertas de emprego') }}
         </h2>
       </div>
 
@@ -276,7 +276,7 @@ class="no-underline hover:underline text-cyan-600">{{ $oftraballo->name }}</a>
                               @can('oftraballo delete')
                                 @csrf
                                 @method('DELETE')
-                                <button class="px-2 py-2" onclick="deleteConfirm(oftraballo)">
+                                <button class="px-2 py-2">
                                   <!-- compoñente tooltip -->
                                   <div class="relative flex inline-flex flex-col items-center group text-red-600">
                                     {{-- __('Delete') --}}

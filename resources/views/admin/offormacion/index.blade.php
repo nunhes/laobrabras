@@ -248,7 +248,7 @@ class="no-underline hover:underline text-cyan-600">{{ $offormacion->name }}</a>
 
 
                             <form action="{{ route('offormacion.destroy', $offormacion->id) }}" method="POST"
-                              class="flex inline-flex">
+                              class="flex inline-flex" id="destroy">
                               @can('offormacion edit')
                                 <a href="{{ route('offormacion.edit', $offormacion->id) }}"
                                   class="px-2 py-2 text-cyan-600">
@@ -272,7 +272,7 @@ class="no-underline hover:underline text-cyan-600">{{ $offormacion->name }}</a>
                               @can('offormacion delete')
                                 @csrf
                                 @method('DELETE')
-                                <button class="px-2 py-2" onclick="deleteConfirm(offormacion)">
+                                  <button class="px-2 py-2">
                                   <!-- compoñente tooltip -->
                                   <div class="relative flex inline-flex flex-col items-center group text-red-600">
                                     {{-- __('Delete') --}}

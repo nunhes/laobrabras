@@ -5051,12 +5051,12 @@ window.deleteConfirm = function (formId) {
     icon: 'warning',
     text: 'Do you want to delete this?',
     showCancelButton: true,
-    cancelButtonText: 'Can',
+    cancelButtonText: 'Cancel',
     confirmButtonText: 'Delete',
     confirmButtonColor: '#e3342f'
   }).then(function (result) {
     if (result.isConfirmed) {
-      document.getElementById(formId).submit();
+      document.getElementById(destroy).submit();
     }
   });
 }; // end alerta on delete

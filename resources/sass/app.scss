@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "../flowbite/flowbite.css";
+@import "../../public/vendor/flowbite/flowbite.css";
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -36,6 +36,8 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* fin dropdown */
 
 
 /* emulacion flex gap

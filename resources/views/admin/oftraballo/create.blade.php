@@ -3,7 +3,7 @@
         <div class="flex items-center">
             <div class="w-1/4 p-2">
                 <h2 class="font-semibold text-xl pl-2 pt-4 leading-tight uppercase">
-                    {{ __('Ofertas de traballo') }}
+                    {{ __('Ofertas de emprego') }}
                 </h2>
             </div>
 
